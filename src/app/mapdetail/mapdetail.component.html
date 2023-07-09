@@ -1,0 +1,33 @@
+<headerr></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="create">
+  <div class="create-background">
+  </div>
+  <div class="create-content">
+    <div class="itinerary-search_input_day">
+      <div class="date">
+      <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+      <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien let i=index" (click)="thi(i+1)">{{thie}}</p>
+      </div>
+      <div class="infor">
+      <!-- <p class="itinerary-search_dates"> Start Date: {{formattedDatstart}}</p>
+      <p class="itinerary-search_datee"> End Date: {{formattedDatend}}</p>
+      <p class="itinerary-search_cost"> Cost: {{cost}}</p> -->
+      <i class="fa-solid fa-calendar-days" (click)="infor()"></i>
+      </div>
+    </div>
+
+
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [class.zoom]="zoom">
+      <agm-direction
+        *ngFor="let locatio of location; let i = index"
+        [origin]="location[i]"
+        [destination]="location[i + 1]"
+        [renderOptions]="{suppressMarkers: true}"
+      ></agm-direction>
+      <agm-marker  *ngFor="let locatio of location; let i = index" [label]=" originLabel[i]" [latitude]="locatio.lat" [longitude]="locatio.lng" [markerDraggable]="false"></agm-marker>
+    </agm-map>
+
+
+  </div>
+</div>

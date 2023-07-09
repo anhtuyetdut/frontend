@@ -1,0 +1,224 @@
+.footer {
+  width: 100%;
+  height: 25%;
+  background-color: rgb(34, 71, 96,0.85);
+  position: absolute;
+  top: 250%;
+  display: grid;
+}
+.footer-main {
+  position: relative;
+}
+.footer-main_header {
+  display:flex;
+  color: white;
+  font-size: 20px;
+  width:60%;
+  margin: 0px;
+  margin-left: 23%;
+}
+.about
+{
+  width:50%;
+  margin-right:5%;
+}
+.caterories{
+ width: 20%;
+}
+.contact
+{
+ width:30%;
+ margin-left: 5%;  
+}
+.footer-main_header_content
+{
+ font-size: 18px;
+}
+.footer-main_header_detail
+{
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.7;
+}
+.footer-main_header_detail_categories
+{
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: -5px;
+}
+.footer-main_header_detail_contact
+{
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: -5px;
+}
+.footer-detail
+{
+width:100%;
+
+}
+.footer-main_line {
+  background-color: rgb(255, 255, 255);
+  width: 57%;
+  height: 1px;
+  margin-top: 0.05%;
+  margin-left: 23%;
+  opacity: 0.7;
+}
+.footeer-main-content
+{
+  color:white;
+  opacity: 0.7;
+  margin: 0px;
+  margin-left: 30%;
+}
+.footer_icon {
+  position: absolute;
+  width: 300px;
+  top: 70%;
+  left: 65%;
+  opacity: 0.7;
+}
+.fa-facebook {
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 50%;
+}
+.fa-instagram {
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+  margin-left: 6%;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 50%;
+}
+.fa-twitter {
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+  margin-left: 6%;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 50%;
+}
+@media screen and (max-width:739px){
+  .footer {
+    width: 100%;
+    height: 15%;
+    background-color: rgb(34, 71, 96,0.85);
+    position: absolute;
+    top: 120%;
+    display: grid;
+  }
+  .footer-main {
+    position: relative;
+  }
+  .footer-main_header {
+    display:flex;
+    color: white;
+    font-size: 20px;
+    width:97%;
+    margin: 0px;
+    margin-left: 3%;
+    margin-top: 5%;
+  }
+  .about
+  {
+    width:40%;
+    margin-right:2%;
+  }
+  .caterories{
+   width: 20%;
+  }
+  .contact
+  {
+   width:30%;
+   margin-left: 5%;  
+  }
+  .footer-main_header_content
+  {
+   font-size: 10px;
+  }
+  .footer-main_header_detail
+  {
+    font-size: 8px;
+    font-style: italic;
+    opacity: 0.7;
+  }
+  .footer-main_header_detail_categories
+  {
+    font-size: 8px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: -5px;
+  }
+  .footer-main_header_detail_contact
+  {
+    font-size: 8px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: -5px;
+  }
+  .footer-detail
+  {
+  width:100%;
+  
+  }
+  .footer-main_line {
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    height: 1px;
+    margin-top: 1%;
+    margin-left: 15%;
+    opacity: 0.7;
+  }
+  .footeer-main-content
+  {
+    color:white;
+    opacity: 0.7;
+    margin: 0px;
+    margin-left: 30%;
+   display: none;
+  }
+  .footer_icon {
+    position: absolute;
+    width: 200px;
+    top: 70%;
+    left: 65%;
+    opacity: 0.7;
+    display: none;
+  }
+  .fa-facebook {
+    font-size: 10px;
+    color: white;
+    display: inline-block;
+    border: 1px solid white;
+    padding: 2%;
+    border-radius: 50%;
+  }
+  .fa-instagram {
+    font-size: 10px;
+    color: white;
+    display: inline-block;
+    margin-left: 6%;
+    border: 1px solid white;
+    padding: 2%;
+    border-radius: 50%;
+  }
+  .fa-twitter {
+    font-size: 10px;
+    color: white;
+    display: inline-block;
+    margin-left: 6%;
+    border: 1px solid white;
+    padding: 2%;
+    border-radius: 50%;
+  }
+
+}

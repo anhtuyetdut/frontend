@@ -1,0 +1,92 @@
+<headerr [addd]="add"></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="favorite" (window:scroll)="srcoll()">
+    <img src="../../assets/image/1.png" alt="" class="export-img">
+    <div class="export-header">
+      <img src="../../assets/image/DANA TRAVEL.png" alt="" class="export-header_img">
+      <img src="../../assets/image/add.png" alt="" class="export-header_img_extra">
+      <div class="export-header_search">
+        <div class="export-header_search_filter">
+          <button class="export-header_search_filter_button"[class.color1]="color1" (click)="choice1()">All</button>
+          <button class="export-header_search_filter_button" [class.color2]="color2" (click)="choice2()">Destination</button>
+          <button class="export-header_search_filter_button" [class.color3]="color3" (click)="choice3()">Itinerary</button>
+        </div>
+      </div>
+</div>
+
+
+
+<div class="favorite-location" [class.itinerary]="itinerary">
+  <p class="favorite-location_header">Favorite Itinerary</p>
+  <div class="anh">
+
+    <div class="anhchinh" *ngFor="let location of locations ">
+      <img (click)="detail(location)" *ngIf="!location.routes[0].route[1].description.photos" src="../../assets/image/ann.webp" alt="" class="favorite-location_img">
+      <img (click)="detail(location)"  *ngIf="location.routes[0].route[3].description.photos" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{location.routes[0].route[3].description.photos}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU" alt="" class="favorite-location_img">
+      <div class="favorite-location_information">
+        <p *ngIf="!location.name" class="name">Unknown Trip</p>
+        <p *ngIf="location.name" class="name">{{location.name}}</p>
+        <p *ngIf="location.people!=1" class="people">People: {{location.people}} peopple</p>
+        <p *ngIf="location.people==1" class="people">Person: {{location.people}} person</p>
+        <p  *ngIf="location.days==1" class="duration">Duration: {{location.days}} day</p>
+        <p  *ngIf="location.days!=1" class="duration">Duration: {{location.days}} days</p>
+        <p class="cost">Cost: {{location.cost.toLocaleString('vi-VN')}} VND</p>
+        <i class="fa-solid fa-heart heartlocation" (click)="unlovee(location.itineraryId)"></i>
+      </div>
+    </div>
+
+</div>
+<div class="total-navigation">
+  <i (click)="truoc()" class="fa-solid fa-chevron-left"></i>
+  <button class="total-navigation_button choice" (click)="navigation(types[0],0)">{{types[0]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[1],1)">{{types[1]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[2],2)">{{types[2]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[3],3)">{{types[3]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[4],4)">{{types[4]}}</button>
+  <!-- <button class="total-navigation_button" *ngFor="let type of types.slice(1,5),let j=index" (click)="navigation(type,j+1)">{{type}}</button> -->
+  <i (click)="sau()" class="fa-solid fa-chevron-right"></i>
+</div>
+</div>
+
+
+<div class="favorite-itinerary" [class.location]="location">
+  <p class="favorite-itinerary_header">Favorite Destination</p>
+  <div class="an">
+
+    <div class="anhchin" *ngFor="let location of lovelocation,let i=index">
+      <div class="favorite-itinerary_information">
+      <img (click)="detaill(location)" *ngIf="location?.photos?.[0].photo_reference"  src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{location?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU" alt="" class="favorite-itinerary_img">
+      <img (click)="detaill(location)" *ngIf="!location?.photos?.[0].photo_reference" src="../../assets/image/nenchung.png" alt="" class="favorite-itinerary_img">
+      <div class="information">
+        <p class="information-name">{{location.name}}</p>
+        <p *ngIf="location.formatted_address" class="information-address">{{location.formatted_address}}</p>
+        <p *ngIf="!location.formatted_address" class="information-address">Da Nang</p>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div
+        class="overlay"
+        *ngFor="let thi of thien"
+        style.width="{{ thien[i] }}%"
+      ></div>
+      <i class="fa-solid fa-heart pink" (click)="unlove(location.locationId)"></i>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="total-navigation">
+    <i (click)="truoc1()" class="fa-solid fa-chevron-left"></i>
+    <button class="total-navigation_button1 choice1" (click)="navigation1(types1[0],0)">{{types1[0]}}</button>
+    <button class="total-navigation_button1 " (click)="navigation1(types1[1],1)">{{types1[1]}}</button>
+    <button class="total-navigation_button1 " (click)="navigation1(types1[2],2)">{{types1[2]}}</button>
+    <button class="total-navigation_button1 " (click)="navigation1(types1[3],3)">{{types1[3]}}</button>
+    <button class="total-navigation_button1 " (click)="navigation1(types1[4],4)">{{types1[4]}}</button>
+    <!-- <button class="total-navigation_button" *ngFor="let type of types.slice(1,5),let j=index" (click)="navigation(type,j+1)">{{type}}</button> -->
+    <i (click)="sau1()" class="fa-solid fa-chevron-right"></i>
+  </div>
+</div>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="background" (click)="back()"></div>
+<div class="backg"></div>
+<div class="choice">
+  <button class="choice-button" [class.colo1]="colo1" (click)="choice(0)">Option 1</button>
+  <button class="choice-button" [class.colo2]="colo2" (click)="choice(1)">Option 2</button>
+  <button class="choice-button" [class.colo3]="colo3" (click)="choice(2)">Option 3</button>
+</div>
+<div class="itinerary">
+  <div class="itinerary-search">
+    <div class="itinerary-search_input">
+      <div class="itinerary-search_input_day">
+        <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+        <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien let i=index" (click)="thi(i+1)">{{thie}}</p>
+
+      </div>
+      <div class="itinerary-search_input_siderbar">
+        <button class="itinerary-search_input_siderbar_button"  (click)="unmap()">Itinerary</button>
+        <button class="itinerary-search_input_siderbar_button color" (click)="map()">Map</button>
+        <button class="itinerary-search_input_siderbar_button"  (click)="downloadPDF()">Export</button>
+        <button class="itinerary-search_input_siderbar_button"  (click)="edit()" >Edit</button>
+      </div>
+
+    </div>
+
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [class.zoom]="zoom">
+      <agm-direction
+        *ngFor="let locatio of location; let i = index"
+        [origin]="location[i]"
+        [destination]="location[i + 1]"
+        [renderOptions]="{suppressMarkers: true}"
+      ></agm-direction>
+      <agm-marker *ngFor="let locatio of location; let j = index" [label]=" originLabel[j]" [latitude]="locatio.lat" [longitude]="locatio.lng" [markerDraggable]="false"></agm-marker>
+    </agm-map>
+
+
+  </div>
+</div>

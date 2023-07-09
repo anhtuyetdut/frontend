@@ -1,0 +1,184 @@
+.signin {
+  width: 100%;
+  height: 850px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../../assets/image/img-background_beach.jpg);
+  padding-top: 6%;
+}
+.signin-form {
+  width: 32%;
+  height: 80%;
+  background-color: rgb(255, 255, 255, 0.7);
+  margin-left: 34%;
+  box-shadow: 0px 0px 5px 3px rgb(235, 235, 235);
+  border-radius: 4px;
+}
+.signin-form_header {
+  font-size: 40px;
+  margin: 0;
+  padding-top: 10%;
+  color: #326c8e;
+  margin-left: 23%;
+}
+.signin-form_header_extra {
+  font-size: 16px;
+  color: #707b81;
+  margin-top: 2%;
+  margin-left: 34%;
+  font-style: italic;
+}
+.signin-form_main {
+  width: 85%;
+  height: 8%;
+}
+.signin-form_input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 8%;
+  margin-top: 6%;
+  border: none;
+  border-radius: 26px;
+  padding-left: 2%;
+  font-size: 18px;
+  box-shadow: 0px 0px 3px 2px rgb(243, 241, 241);
+}
+::placeholder {
+  color: rgb(146, 146, 146);
+}
+.signin-form_input:focus {
+  outline: 1px solid #619ec0;
+}
+.signin-form_input_notification {
+  color: red;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 12%;
+  font-style: italic;
+  display: none;
+}
+.notification {
+  display: block;
+}
+.password {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.fa-eye {
+  position: absolute;
+  font-size: 16px;
+  top: 36%;
+  left: 102%;
+  color: #799aac;
+  cursor: pointer;
+}
+.signin-form_forgot {
+  margin-top: 4%;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 78%;
+  width: 200px;
+  cursor: pointer;
+}
+.signin-form_button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 10%;
+  margin-top: 4%;
+  border: none;
+  border-radius: 26px;
+  padding-left: 2%;
+  background-color: #619ec0;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0px 0px 3px 2px rgb(243, 241, 241);
+  text-shadow: 2px 2px 2px rgb(114, 113, 113);
+  cursor: pointer;
+}
+.signin-form_button:hover {
+  box-shadow: 0px 0px 3px 2px #053853;
+}
+.signin-form_choice {
+  margin-top: 4%;
+  font-size: 16px;
+  margin-left: 58%;
+  font-weight: 600;
+}
+.signin-form_choice_google {
+  width: 35%;
+  height: 80%;
+  border: none;
+  border-radius: 24px;
+  background-color: white;
+  margin-left: 21%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0px 0px 3px 2px rgb(207, 207, 207);
+}
+.signin-form_choice_facebook {
+  width: 35%;
+  height: 80%;
+  border: none;
+  border-radius: 24px;
+  background-color: white;
+  margin-left: 9%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0px 0px 3px 2px rgb(207, 207, 207);
+}
+.signin-form_choice_google:hover,
+.signin-form_choice_facebook:hover {
+  box-shadow: 0px 0px 3px 2px rgb(175, 174, 174);
+}
+.fa-google_img {
+  width: 20%;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+}
+.fa-google_detail {
+  left: 35%;
+  position: absolute;
+  top: 30%;
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
+}
+.fa-facebook_img {
+  width: 20%;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+}
+.fa-facebook_detail {
+  left: 35%;
+  position: absolute;
+  top: 30%;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+}
+.signin-form_signup {
+  margin-top: 7%;
+  margin-left: 26%;
+  font-weight: 600;
+}
+.signin-form_signup_detail {
+  color: #1170af;
+  cursor: pointer;
+}
+.signin-form_signup_noti
+{
+  color: red;
+  font-weight: 800;
+  font-size: 18px;
+  margin-left: 24.5%;
+  margin-top: 5%;
+  display: none;
+}
+.noti{
+ display: block;
+}

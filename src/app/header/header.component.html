@@ -1,0 +1,50 @@
+<div class="header">
+  <div class="header-logo">
+    <img class="header-logo_img" src="../../assets/image/img-logo.png" alt="" (click)="homepage()" />
+  </div>
+  <div class="header-sidebar">
+    <p class="header-sidebar_content"  routerLink="/search"> Search Itinerary</p>
+    <p class="header-sidebar_content"   routerLink="/total" >Itinerary</p>
+    <p class="header-sidebar_content"  routerLink="/location" >Destination</p>
+    <p class="header-sidebar_content"  routerLink="/favorite" >Favorite</p>
+    <p class="header-sidebar_content"   routerLink="/export" >Your Itinerary</p>
+  </div>
+  <div class="header-function">
+    <p
+      class="header-function_content"
+      routerLink="/signin"
+      [class.act]="action_request"
+    >
+      Sign in
+    </p>
+    <p class="header-function_content_line" [class.act]="action_request"></p>
+    <p
+      class="header-function_content"
+      routerLink="/signup"
+      [class.act]="action_request"
+    >
+      Sign up
+    </p>
+    <div
+      class="header-function_content_signin"
+      (click)="showmore()"
+      [class.act]="action_main"
+    >
+    <img class="header-function_content_signin_img" src="../../assets/image/profile.jpg" alt="">
+
+    </div>
+  </div>
+  <div class="header-function_content_showmore"[class.act]="add" routerLink="">
+    <div class="header-function_content_showmore_header">
+      <p class="header-function_content_signin_name">{{account[0].name}}</p>
+    </div>
+    <i class="fa-solid fa-circle-info"> </i>
+    <span class="information" routerLink="/profile"> View Your Profile</span>
+    <br>
+    <i class="fa-solid fa-pen"></i>
+    <span class="information" routerLink="/changepassword"> Change Your Passwword</span>
+    <br>
+    <i class="fa-solid fa-arrow-right-from-bracket" (click)="signout()"></i>
+    <p class="information" (click)="signout()">Sign Out</p>
+  </div>
+</div>

@@ -1,0 +1,292 @@
+<loading [class.loading]="loading"></loading>
+<div class="backg"></div>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+<div class="background" (click)="back()"></div>
+<div class="choicee">
+  <button class="choice-buttonn" [class.colo1]="colo1" (click)="choice(0)">Option 1</button>
+  <button class="choice-buttonn" [class.colo2]="colo2" (click)="choice(1)">Option 2</button>
+  <button class="choice-buttonn" [class.colo3]="colo3" (click)="choice(2)">Option 3</button>
+</div>
+<div class="itinerary">
+  <div class="itinerary-search">
+    <div class="itinerary-search_input">
+      <div class="itinerary-search_input_day">
+        <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+        <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien; let i = index" (click)="thi(i + 1)">
+          {{ thie }}
+        </p>
+      </div>
+      <div class="itinerary-search_input_siderbar">
+        <button class="itinerary-search_input_siderbar_button" (click)="unmap()">Itinerary</button>
+        <button class="itinerary-search_input_siderbar_button" (click)="map()">Map</button>
+        <button class="itinerary-search_input_siderbar_button" (click)="downloadPDF()">Export</button>
+        <button class="itinerary-search_input_siderbar_button color" (click)="edit()">Edit</button>
+      </div>
+    </div>
+
+    <div cdkDropListGroup>
+      <div class="example-container">
+        <h2>Destination</h2>
+
+        <div cdkDropList [cdkDropListData]="todo" class="example-list todo" (cdkDropListDropped)="drop($event)">
+          <!-- <p (click)="update()">thiện</p> -->
+          <div class="themm">
+            <div class="total-navigation">
+              <i (click)="truoc()" class="fa-solid fa-chevron-left"></i>
+              <button class="total-navigation_button choice" (click)="navigation(types[0], 0)">
+                {{ types[0] }}
+              </button>
+              <button class="total-navigation_button" (click)="navigation(types[1], 1)">
+                {{ types[1] }}
+              </button>
+              <button class="total-navigation_button" (click)="navigation(types[2], 2)">
+                {{ types[2] }}
+              </button>
+              <button class="total-navigation_button" (click)="navigation(types[3], 3)">
+                {{ types[3] }}
+              </button>
+              <button class="total-navigation_button" (click)="navigation(types[4], 4)">
+                {{ types[4] }}
+              </button>
+              <!-- <button class="total-navigation_button" *ngFor="let type of types.slice(1,5),let j=index" (click)="navigation(type,j+1)">{{type}}</button> -->
+              <i (click)="sau()" class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <div class="search">
+              <form class="form" #form="ngForm" (ngSubmit)="search(form.value)">
+                <input
+                  type="text"
+                  #input="ngModel"
+                  class="drop-input"
+                  placeholder="Search here...."
+                  name="keyword"
+                  [ngModel]=""
+                  autocomplete="off"
+                />
+                <button class="bam">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="example-box" *ngFor="let item of todo" cdkDrag>
+            <img
+              *ngIf="item.img"
+              src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{
+                item.img
+              }}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+
+            <img
+              *ngIf="!item.img && item.type[0] == 'cafe'"
+              src="../../assets/image/cafe.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'food'"
+              src="../../assets/image/food.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'restaurant'"
+              src="../../assets/image/food.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'park'"
+              src="../../assets/image/park.png"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'church'"
+              src="../../assets/image/church.webp"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'museum'"
+              src="../../assets/image/museum.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'travel'"
+              src="../../assets/image/travel.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'natural_feature'"
+              src="../../assets/image/travel.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="!item.img && item.type[0] == 'premise'"
+              src="../../assets/image/travel.jpeg"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+
+            <div class="information">
+              <p class="name">{{ item.name }}</p>
+              <p class="address">{{ item.address }}</p>
+              <div class="start">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div class="timetime">
+                <p class="timess">Stay Time: {{ item.time }} minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-container done">
+        <h2>Your Itinerary</h2>
+
+        <div cdkDropList [cdkDropListData]="location" class="example-list todo" (cdkDropListDropped)="drop($event)">
+          <div class="them">
+            <button class="them-button" (click)="generate()">Arrange</button>
+            <button class="them-button" (click)="update()">Update</button>
+            <button class="them-button" (click)="reset()">Reset</button>
+          </div>
+
+          <div class="example-box" *ngFor="let item of location; let i = index" cdkDrag>
+            <img
+              *ngIf="!item.img"
+              src="../../assets/image/nenchung.png"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <img
+              *ngIf="item.img"
+              src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{
+                item.img
+              }}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+              alt=""
+              class="itinerary-search_place_main_img"
+            />
+            <div class="information">
+              <p class="name">{{ item.name }}</p>
+              <p *ngIf="!item.address" class="addressadd">Son Tra,Da Nang</p>
+              <p class="address">{{ item.address }}</p>
+              <div class="start">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <div *ngIf="!item.address" class="timetimee">
+                <p class="timees">{{ thoigian[i].timeS }}</p>
+                <p class="timeee">{{ thoigian[i].timeE }}</p>
+              </div>
+
+              <div *ngIf="item.address" class="timetimeee">
+                <p class="times">{{ thoigian[i].timeS }}</p>
+                <p class="timee">{{ thoigian[i].timeE }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div cdkDropListGroup>
+  <div class="example-container">
+    <h2>Location</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>
+        <img
+        *ngIf="item.img"
+        src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{item.img}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+        alt=""
+        class="itinerary-search_place_main_img"
+      />
+      <img *ngIf="!item.img"
+      src="../../assets/image/vanda.webp"
+      alt=""
+      class="itinerary-search_place_main_img"
+    />
+      <div class="information">
+        <p class="name"> {{item.name}} </p>
+        <p class="address"> {{item.address}} </p>
+        <div class="start">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="timetime">
+          <p class="times"> 1:30 </p>
+          <p class="timee"> 00:30 </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="example-container done">
+    <h2>Your Itinerary</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="locations"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of locations,let i=index" cdkDrag>
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{item.img}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+          alt=""
+          class="itinerary-search_place_main_img"
+        />
+        <div class="information">
+        <p class="name"> {{item.name}} </p>
+        <p *ngIf="!item.address" class="addressadd">Son Tra,Da Nang </p>
+        <p class="address"> {{item.address}} </p>
+        <div class="start">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="timetime">
+          <p class="times"> {{thoigian[i].timeS}} </p>
+          <p class="timee"> {{thoigian[i].timeE}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="itinerary-search_input_day">
+  <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+  <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien let i=index" (click)="thi(i+1)">{{thie}}</p>
+  <p class="itinerary-search_input_day_detail" *ngFor="let th of then, let i=index" (click)="thi(i+1)">{{th.name}}</p>
+
+</div> -->

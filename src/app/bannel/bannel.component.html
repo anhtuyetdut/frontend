@@ -1,0 +1,47 @@
+<div class="bannel">
+  <div class="bannel-header">
+    <img
+      class="bannel-header_img"
+      [class.panel]="backGroundWeather"
+      [class.transfer]="backGroundBeachExtra"
+      src="../../assets/image/hinh1.png"
+      alt=""
+    />
+    <img
+      class="bannel-header_img"
+      [class.panel]="backGroundMap"
+      [class.transfer]="backGroundMapExtra"
+      src="../../assets/image/hinh2.png"
+      alt=""
+    />
+    <img
+      class="bannel-header_img"
+      [class.panel]="backGroundBeach"
+      [class.transfer]="backGroundWeatherExtra"
+      src="../../assets/image/hinh3.png"
+      alt=""
+    />
+    <img
+    class="bannel-header_imgg"
+    src="../../assets/image/hinh4.png"
+    alt=""
+  />
+    <div class="transfer-img">
+      <button
+        class="transfer-img_button"
+        [class.mau]="backGroundWeatherExtra"
+        (click)="transferBeach()"
+      ></button>
+      <button
+        class="transfer-img_button"
+        [class.mau]="backGroundMapExtra"
+        (click)="transferMap()"
+      ></button>
+      <button
+        class="transfer-img_button"
+        [class.mau]="backGroundBeachExtra"
+        (click)="transferWeather()"
+      ></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="admin">
+  <div class="admin-siderbar">
+    <img
+      src="../../assets/image/img-logo.png"
+      alt=""
+      class="admin-siderbar_logo"
+    />
+    <div class="admin-siderbar_function">
+      <div class="mainnn">
+        <i class="fa-solid fa-house"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/admin">
+          Home Page</span
+        >
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-user"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/manageuser">
+          Manage User</span
+        >
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-plane"></i>
+        <span
+          class="admin-siderbar_function_detail"
+          routerLink="/manageitinerary"
+        >
+          Manage Itinerary</span
+        >
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-sharp fa-solid fa-hotel"></i>
+        <span
+          class="admin-siderbar_function_detail"
+          routerLink="/managelocation"
+          >Manage Location</span
+        >
+        <br />
+      </div>
+      <div class="line"></div>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <span class="admin-siderbar_function_detail"> Sign Out</span>
+    </div>
+  </div>
+  <div class="admin-header">
+    <form class="form">
+      <input
+        type="text"
+        class="admin-header_input"
+        placeholder="Search here....."
+      />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </form>
+    <img
+      src="../../assets/image/img-itinerary_review.jpg"
+      alt=""
+      class="admin-header_img"
+    />
+  </div>
+  <div class="admin-body">
+    <div class="admin-body_information">
+      <div class="admin-body_information_detail blue">
+        <p class="admin-body_information_detail_total">Total User</p>
+        <p class="admin-body_information_detail_count">{{ infor.Accounts }}</p>
+      </div>
+      <div class="admin-body_information_detail green">
+        <p class="admin-body_information_detail_total">Total Itinerary</p>
+        <p class="admin-body_information_detail_count">{{ infor.Locations }}</p>
+      </div>
+      <div class="admin-body_information_detail poper">
+        <p class="admin-body_information_detail_total">Total Location</p>
+        <p class="admin-body_information_detail_count">{{ infor.Accounts }}</p>
+      </div>
+      <div class="admin-body_information_detail pink">
+        <p class="admin-body_information_detail_total">Total Service</p>
+        <p class="admin-body_information_detail_count">0</p>
+      </div>
+    </div>
+    <div class="admin-body_chart">
+      <chartcolum class="chartcolum"></chartcolum>
+    </div>
+    <div class="admin-body_chart">
+      <chartcolum1 class="chartcolum"></chartcolum1>
+    </div>
+    <div class="admin-body_chart">
+      <chartcolum2 class="chartcolum"></chartcolum2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<headerr></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="create">
+  <div class="create-background">
+  </div>
+  <div class="create-content">
+    <div class="itinerary-search_input_day">
+      <div class="date">
+      <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+      <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien let i=index" (click)="thi(i+1)">{{thie}}</p>
+      </div>
+      <div class="infor">
+      <p class="itinerary-search_dates"> Duration: {{duration}}</p>
+      <p class="itinerary-search_cost"> Cost: {{cost}}</p>
+      <i class="fa-solid fa-map-location-dot" (click)="map()"></i>
+      </div>
+    </div>
+
+      <div class="itinerary-search_place">
+        <div
+        class="itinerary-search_place_main"
+        *ngFor="let locatio of location let i=index"
+      > 
+      <img
+            *ngIf="!locatio.description.photos"
+            src="../../assets/image/nen33.jpeg"
+            alt=""
+            class="itinerary-search_place_main_img"
+          />
+  
+          <img
+          *ngIf="locatio.description.photos"
+            src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{locatio.description.photos}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+            alt=""
+            class="itinerary-search_place_main_img"
+          />
+          <div class="itinerary-search_place_main_detail">
+            <p class="itinerary-search_place_main_detail_name">
+              {{ locatio.description
+                .name }}
+            </p>
+            <p class="itinerary-search_place_main_detail_extra">
+              {{ locatio.description.address }}
+            </p>
+            <div class="start">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <!-- <div
+                class="overlay"
+                *ngFor="let thi of thien"
+                style.width="{{ thien[i] }}%"
+              ></div> -->
+            </div>
+            <p class="itinerary-search_place_main_detail_extr">
+              Start Time:
+              {{ locatio.travelTime.arrival
+              }}
+            </p>
+            <p class="itinerary-search_place_main_detail_extr">
+              End Time:
+              {{ locatio.travelTime.departure
+              }}
+            </p>
+          </div>
+          <div class="itinerary-search_place_main_funtion">
+            <p class="itinerary-search_place_main_funtion_price">
+              {{ locatio.cost }}
+            </p>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>

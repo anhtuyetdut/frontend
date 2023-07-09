@@ -1,0 +1,183 @@
+<headerr [addd]="add"></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="total" (window:scroll)="srcoll()">
+  <img src="../../assets/image/nen12.jpeg" alt="" class="total-img" />
+  <div class="total-header">
+    <img
+      src="../../assets/image/DANA TRAVEL.png"
+      alt=""
+      class="total-header_img"
+    />
+    <!-- <img src="../../assets/image/LOCATION.png" alt="" class="total-header_img_extra"> -->
+    <div class="body">
+      <p class="body-number">01</p>
+      <p class="body-function">Information</p>
+      <img
+        src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{booking?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+        alt=""
+        class="body-img"
+      />
+      <p class="body-name">{{ booking.name }}</p>
+      <p class="body-des">
+        {{ booking.name }} is the most beautiful place in Da Nang.
+        {{ booking.name }} has a luxurious design and an incredibly beautiful
+        view. Therefore, this place is a preferred destination for tourists to
+        book rooms. During the tourism seasons, the hotel is often fully booked
+        due to advance . {{ booking.name }} with modern spaces and convenient
+        amenities, creating the most relaxing experience for guests staying
+        here.
+      </p>
+      <div class="start">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <i class="fa-solid fa-location-dot"></i>
+      <p class="body_location">{{ booking.formatted_address }}</p>
+    </div>
+  </div>
+  <div class="review" *ngIf="booking.reviews">
+    <p class="review-number">02</p>
+    <p class="review-function">Review</p>
+
+    <div class="main-review">
+      <div
+        class="information-main_content_review"
+        *ngFor="let review of booking.reviews.slice(0, 4)"
+      >
+        <img
+          class="information-main_content_review_img"
+          src="{{ review.profile_photo_url }}"
+          alt=""
+        />
+        <div class="detail">
+          <p class="information-main_content_review_name">
+            {{ review.author_name }}
+          </p>
+          <p class="information-main_content_review_text">{{ review.text }}</p>
+          <p class="information-main_content_review_rating">
+            {{ review.rating }} <i class="fa-solid fa-star ngoisao"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relate" *ngIf="relateds">
+    <p class="relate-number">03</p>
+    <p class="relate-function">Related Destination</p>
+    <div class="information-extra_main">
+      <div
+        class="information-extra_main_content"
+        *ngFor="let related of relateds.slice(0, 4)"
+      >
+      <img *ngIf="!related.photos"
+      src="../../assets/image/nenchung.png"
+      alt=""
+      class="information-extra_main_content_img"
+      (click)="detail(related)"
+    />
+        <img
+        *ngIf="related.photos"
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{related?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+          alt=""
+          class="information-extra_main_content_img"
+          (click)="detail(related)"
+        />
+        <p class="information-extra_main_content_name"></p>
+        <p class="information-extra_main_content_price">{{ related.name }}</p>
+        <!-- <i class="fa-solid fa-location-dot extra"></i> -->
+        <p class="information-extra_main_content_location">
+          {{ related.formatted_address }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="information">
+  <div class="information-main">
+    <div class="information-main_i  mg">
+      <img
+        src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{booking?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+        alt=""
+        class="information-main_img_main"
+      />
+      <div class="information-main_img_extra">
+        <img
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{photo.photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+          alt=""
+          class="information-main_img_extra_detail"
+          *ngFor="let photo of booking.photos.slice(1,5),let i=index"
+        />
+      </div>
+    </div>
+    <div class="information-main_content">
+      <div class="information-main_content_detail">
+        <p class="information-main_content_detail_header">{{booking.name}}</p>
+        <p class="information-main_content_detail_extra">
+        {{booking.des}}
+        </p>
+        <div class="start">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <div
+            class="overlay"
+            *ngFor="let thi of thien"
+            style.width="{{ thien}}%"
+          ></div>
+        </div>
+        <i class="fa-solid fa-location-dot"></i>
+        <p class="information-main_content_detail_location">{{booking.formatted_address}}</p>
+        <p class="information-main_review">USER'S REVIEWS</p>
+      <div class="main-review">
+        <div class="information-main_content_review" *ngFor="let review of booking.reviews ">
+          <img class="information-main_content_review_img" src="{{review.profile_photo_url}}" alt="">
+          <div class="detail">
+            <p class="information-main_content_review_name">{{review.author_name}}</p>
+              <p class="information-main_content_review_text">{{review.text}}</p>
+              <p class="information-main_content_review_rating">{{review.rating}} <i class="fa-solid fa-star ngoisao"></i></p>
+            </div>
+        </div>
+        </div>
+        <button class="addfavourite"> Add To Favourtie </button>
+
+        <br />
+        <div *ngFor="let ser of booking.service">
+        <i class="fa-solid fa-check"></i>
+        <p class="information-main_content_detail_service">
+          {{ser}}
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="information-extra">
+    <p class="information-extra_header">SAME LOCATIONS</p>
+    <div class="main">
+      <div class="information-extra_main">
+        
+        <div class="information-extra_main_content" *ngFor="let related of relateds">
+          <img
+            src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{related?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+            alt=""
+            class="information-extra_main_content_img"
+          />
+          <p class="information-extra_main_content_name"></p>
+          <p class="information-extra_main_content_price">{{related.name}}</p>
+          <i class="fa-solid fa-location-dot extra"></i>
+          <p class="information-extra_main_content_location">
+            {{related.formatted_address}}
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->
+</div>

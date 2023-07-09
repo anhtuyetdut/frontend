@@ -1,0 +1,69 @@
+<headerr [addd]="add"></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="total" (window:scroll)="srcoll()">
+  <img src="../../assets/image/nen12.jpeg" alt="" class="total-img">
+  <div class="total-header">
+    <img src="../../assets/image/DANA TRAVEL.png" alt="" class="total-header_img">
+    <p></p>
+    <form class="form"  #form="ngForm" (ngSubmit)="search(form.value)">
+    <input type="text" #input="ngModel" class="total-header_input" placeholder="Search here...." name="keyword" [ngModel]=" " autocomplete="off" (keyup)="change($event)">
+    <button class="bam"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+    </form>
+    <div class="type"> 
+    <button class="total-header_input_type" (click)="loc('restaurant')" [class.doimau]="doimau1">Restaurant</button>
+    <button class="total-header_input_type" (click)="loc1('cafe')" [class.doimau]="doimau2">Coffee</button>
+    <button class="total-header_input_type" (click)="loc2('park')" [class.doimau]="doimau3"> Park</button>
+    <button class="total-header_input_type" (click)="loc3('church')" [class.doimau]="doimau4"> Church</button>
+    <button class="total-header_input_type" (click)="loc4('museum')" [class.doimau]="doimau5">Museum</button>
+    </div>
+
+
+
+
+    <div class="anh">
+    <div class="total-header_main" *ngFor="let location of locations, let i=index">
+      <img *ngIf="(location.photos===null) && location.types[0]=='cafe'" src="../../assets/image/cafe.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='food'" src="../../assets/image/food.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='restaurant'" src="../../assets/image/food.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='park'" src="../../assets/image/park.png" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='church'" src="../../assets/image/church.webp" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='museum'" src="../../assets/image/museum.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='travel'" src="../../assets/image/travel.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='natural_feature'" src="../../assets/image/travel.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+      <img *ngIf="(location.photos===null) && location.types[0]=='premise'" src="../../assets/image/travel.jpeg" alt="" class="total-header_main_img" (click)="detail(location)">
+     <img *ngIf="location.photos" (click)="detail(location)" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{location?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU" alt="" class="total-header_main_img">
+     <i class="fa-solid fa-heart pink" (click)="unlove(location._id)" *ngIf="thich.includes(location._id)"></i>
+     <i class="fa-solid fa-heart " (click)="love(location._id)" *ngIf="!thich.includes(location._id)"></i>
+     <p class="total-header_main_detail">{{location.name}}</p>
+    <div class="rating">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+  </div>
+  <div
+              class="overlay"
+              *ngFor="let thi of thien"
+              style.width="{{ thien[i] }}%"
+            ></div>
+
+    <i class="fa-solid fa-location-dot"></i><p class="total-header_main_detail_address">{{location.formatted_address}}</p>
+    </div>    
+  </div>
+</div>
+
+
+<div class="total-navigation">
+  <i (click)="truoc()" class="fa-solid fa-chevron-left"></i>
+  <button class="total-navigation_button choice" (click)="navigation(types[0],0)">{{types[0]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[1],1)">{{types[1]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[2],2)">{{types[2]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[3],3)">{{types[3]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[4],4)">{{types[4]}}</button>
+  <i (click)="sau()" class="fa-solid fa-chevron-right"></i>
+</div>
+
+
+
+</div>

@@ -1,0 +1,49 @@
+<div class="signin">
+  <div class="signin-form">
+    <p class="signin-form_header">DANA TRAVEL</p>
+    <p class="signin-form_header_extra">ADMIN SIGN IN PAGE</p>
+    <form
+      #signin="ngForm"
+      class="signin-form_main"
+      (ngSubmit)="submit(signin.value)"
+    >
+      <input
+        class="signin-form_input"
+        type="text"
+        placeholder="Your email"
+        name="email"
+        autocomplete="off"
+        [ngModel]
+        #email="ngModel"
+      />
+      <p
+        class="signin-form_input_notification"
+        [class.notification]="notification"
+      >
+        This section cannot be left blank
+      </p>
+      <div class="password">
+        <input
+          class="signin-form_input"
+          type="{{ type }}"
+          placeholder="Your password"
+          name="password"
+          autocomplete="off"
+          [ngModel]
+          #password="ngModel"
+        />
+        <p
+          class="signin-form_input_notification"
+          [class.notification]="notificationpassword"
+        >
+          This section cannot be left blank
+        </p>
+        <i class="fa-regular fa-eye" (click)="showpassword()"></i>
+      </div>
+      <p class="signin-form_forgot" routerLink="/forgotpassword">Forgot password?</p>
+      <button class="signin-form_button">Sign in</button>
+     
+    <p class="signin-form_signup_noti" [class.noti]="noti"> Your email or password is incorrect !!!</p>
+  </form>
+  </div>
+</div>

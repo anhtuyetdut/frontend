@@ -1,0 +1,82 @@
+<div class="manageuser">
+    <div class="manageuser-header">
+      <form class="form">
+        <input
+          type="text"
+          class="manageuser-header_input"
+          placeholder="Search here....."
+        />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </form>
+      <img
+        src="../../assets/image/img-itinerary_review.jpg"
+        alt=""
+        class="manageuser-header_img"
+      />
+    </div>
+    <div class="manageuser-siderbar">
+      <img
+        src="../../assets/image/img-logo.png"
+        alt=""
+        class="manageuser-siderbar_logo"
+      />
+      <div class="manageuser-siderbar_function">
+        <div class="mainnn">
+          <i class="fa-solid fa-house"></i>
+          <span class="manageuser-siderbar_function_detail" routerLink="/admin"> Home Page</span>
+          <br />
+        </div>
+        <div class="mainnn">
+          <i class="fa-solid fa-user"></i>
+          <span class="manageuser-siderbar_function_detail" routerLink="/admin/manageuser"> Manage User</span>
+          <br />
+        </div>
+        <div class="mainnn">
+          <i class="fa-brands fa-servicestack"></i>
+          <span class="manageuser-siderbar_function_detail" routerLink="/admin/manage"> Manage Service</span>
+          <br />
+        </div>
+        <div class="mainnn">
+          <i class="fa-solid fa-plane"></i>
+          <span class="manageuser-siderbar_function_detail" routerLink="/admin/managebooking">
+            Manage Itinerary</span
+          >
+          <br />
+        </div>
+        <div class="mainnn">
+          <i class="fa-sharp fa-solid fa-hotel"></i>
+          <span class="manageuser-siderbar_function_detail" routerLink="/admin/managebooking">Manage Booking</span>
+          <br />
+        </div>
+        <div class="line"></div>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span class="manageuser-siderbar_function_detail"> Sign Out</span>
+      </div>
+    </div>
+  
+    <div class="manageuser-table">
+      <div class="manageuser-table_main_header">
+        <p class="manageuser-table_main_header_id">ID</p>
+        <p class="manageuser-table_main_header_img">IMAGE</p>
+        <p class="manageuser-table_main_header_name">NAME</p>
+        <p class="manageuser-table_main_header_email">POSITON</p>
+        <p class="manageuser-table_main_header_role">PRICE</p>
+        <p class="manageuser-table_main_header_action">ACTION</p>
+      </div>
+      <div class="manageuser-table_main">
+        <div class="manageuser-table_main_content mot" *ngFor="let booking of bookings">
+          <p class="manageuser-table_main_content_id">{{booking.id}}</p>
+          <p class="manageuser-table_main_content_img"><img src="{{booking.img}}" alt="" class="manageuser-table_main_content_img_detail"></p>
+          <p class="manageuser-table_main_content_name">{{booking.name}}</p>
+          <p class="manageuser-table_main_content_email">{{booking.position}}</p>
+          <p class="manageuser-table_main_content_role">{{booking.price}}</p>
+          <p class="manageuser-table_main_content_action">
+              <i class="fa-solid fa-trash"></i>
+          </p>
+        </div>
+        
+      </div>
+      <button class="manageuser-table_addusser">Add New User <i class="fa-solid fa-plus"></i></button>
+    </div>
+  </div>
+  

@@ -1,0 +1,248 @@
+.create
+{
+  width: 100%;
+  background-image: url(../../assets/image/nen10.jpeg);
+  background-size: 100% 100%;
+  height: 870px;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  position: fixed;
+top:0%;
+left:0%;
+right:0%;
+bottom: 0%;
+}
+.create-background
+{
+position: fixed;
+top:0%;
+left:0%;
+right:0%;
+bottom: 0%;
+background-color: rgb(0, 0, 0,0.6);
+z-index: 2;
+}
+.create-content
+{
+position: fixed;
+top:18%;
+left:10%;
+right:10%;
+bottom: 5%;
+background-color: rgba(255, 255, 255, 0.9);
+z-index: 5;
+border-radius: 16px;
+box-shadow: 0px 0px 5px 3px white;
+}
+.itinerary-search_input_day
+{
+  display: flex;
+  width:100%
+}
+.itinerary-search_input_day_detail:first-child
+{
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.itinerary-search_input_day_detail
+{
+  line-height: 50px;
+  text-align: center;
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-left: 2%;
+  border-radius: 18px;
+  width:18%;
+  height:50px;
+  margin-top: 0.8%;
+}
+.add
+{
+  font-size: 24px;
+  background-color: rgb(121, 118, 118);
+  width:18%;
+  height:50px;
+  margin-top: 0.8%;
+  margin-left: 1%;
+  border-radius: 18px;
+  line-height: 50px;
+  color: white;
+  
+}
+.itinerary-search_place {
+  width: 100%;
+  height: 87%;
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.itinerary-search_place::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+.itinerary-search_place_main {
+  width: 98%;
+  height: 29%;
+  background-color: white;
+  margin-top: 2%;
+  display: flex;
+  cursor: pointer;
+  border-radius: 16px;
+  box-shadow: 0px 0px 3px 2px rgb(180, 180, 180);
+  margin-left: 1%;
+}
+.itinerary-search_place_main_img {
+  width: 10%;
+  height: 65%;
+  border-radius: 50%;
+  margin-top: 2%;
+  margin-left: 3%;
+  border: 2px solid #326c8e;
+  object-fit: cover;
+}
+.itinerary-search_place_main_detail {
+  width: 60%;
+  height: 65%;
+  margin-top: 1.5%;
+  margin-left: 3%;
+}
+.itinerary-search_place_main_detail_name {
+  font-size: 20px;
+  margin: 0px;
+  font-weight: 600;
+  margin-top: 1%;
+}
+.itinerary-search_place_main_detail_extra {
+  margin: 0px;
+  width: 95%;
+  margin-top: 1%;
+  font-size: 16px;
+}
+.itinerary-search_place_main_detail_extr {
+  margin: 0px;
+  width: 95%;
+  margin-top: 1%;
+  font-size: 16px;
+  font-weight: 600;
+  color:#326c8e
+}
+.itinerary-search_place_main_detail_time {
+  display: flex;
+  margin-top: 1%;
+}
+.itinerary-search_place_main_detail_time_start {
+  margin: 0px;
+  margin-top: 0.5%;
+  color: #326c8e;
+  font-weight: 600;
+  font-size: 14px;
+}
+.itinerary-search_place_main_detail_time_end {
+  margin: 0px;
+  margin-top: 1.5%;
+  color: #326c8e;
+  font-weight: 600;
+  margin-left: 3%;
+  font-size: 14px;
+}
+.start {
+  position: relative;
+  width: 32%;
+  height: 22%;
+}
+.fa-star {
+  margin-top: 2%;
+  color: #e8ad16;
+  margin-right: 3%;
+  font-size: 16px;
+}
+.overlay {
+  background-color: #ffffff;
+  width: 0%;
+  height: 100%;
+  mix-blend-mode: color;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.itinerary-search_place_main_funtion {
+  width: 9%;
+  height: 90%;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+.itinerary-search_place_main_funtion_price {
+  margin: 0px;
+  color: #0a8039;
+  font-size: 16px;
+  border: 1px solid #0a8039;
+  text-align: center;
+  border-radius: 8px;
+  height: 30%;
+  width: 80%;
+  line-height: 50px;
+  font-weight: 600;
+  margin-left: 10%;
+}
+.itinerary-search_dates
+{
+ margin-left: 34%;
+ font-size: 20px;
+ color: #ffffff;
+ font-weight: 600;
+ width:22%;
+ height: 80%;
+ padding-left: 2%;
+ line-height: 40px;
+ background-color:rgb(121, 118, 118);
+ border-radius: 14px;
+}
+.itinerary-search_datee
+{
+  margin-left: 3%;
+  font-size: 18px;
+  color: #326c8e;
+  font-weight: 600;
+}
+.itinerary-search_cost
+{
+  font-size: 20px;
+  color: #ffffff;
+  margin-left: 3%;
+  font-weight: 600;
+  width:22%;
+  height: 80%;
+  padding-left: 2%;
+  line-height: 40px;
+  background-color:rgb(121, 118, 118);
+  border-radius: 14px;
+}
+.date
+{
+ width:50%;
+ height:50px;
+ display: flex;
+}
+.infor
+{
+  width:60%;
+  height:50px;
+  display: flex;
+}
+.fa-map-location-dot
+{
+  font-size: 30px;
+  color:rgb(121, 118, 118);
+  margin-top: 3%;
+  margin-left: 2%;
+  cursor: pointer;
+  line-height: 40px;
+}
+.loading
+{
+  display: none;
+}

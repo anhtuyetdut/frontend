@@ -1,0 +1,427 @@
+
+.favorite {
+  width: 100%;
+  height: 1900px;
+}
+.export-img
+{
+  width:100%;
+  height: 40%;
+  object-fit: cover;
+}
+.export-header {
+  width: 100%;
+  height: 230%;
+  top: 85%;
+  position: absolute;
+  background-image: linear-gradient(to bottom, #ecd4c9,#eec3b0);
+  box-shadow: 0px -40px 50px 20px #ecd4c9;
+}
+.export-header_img
+{
+  width: 100%;
+  height: 52%;
+  object-fit: cover;
+  top: -52%;
+  position: absolute;
+}
+.export-header_img_extra
+{
+  width: 100%;
+  height: 42%;
+  object-fit: cover;
+  top: -36%;
+  position: absolute;
+}
+.export-header_search
+{
+  width: 30%;
+  height: 4%;
+  background-color: rgb(255, 255, 255,0.85);
+  position: absolute;
+  top: -11%;
+  left:35%;
+  border-radius: 36px;
+}
+.export-header_search_filter
+{
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  left:2%;
+  top:3%;
+  display: flex;
+}
+.export-header_search_filter_button
+{
+  width: 22%;
+  height: 60%;
+  margin-left: 7%;
+  margin-top: 4%;
+  border: none;
+  border-radius: 18px;
+  background-color: white;
+  font-weight: 600;
+  box-shadow: 0px 0px 2px 1px rgb(169, 169, 169);
+  cursor: pointer;
+}
+.export-header_search_input
+{
+  width: 40%;
+  height: 50%;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 24px;
+  position: absolute;
+  top: 25%;
+  left:52%;
+  font-size: 16px;
+  padding-left: 1%;
+}
+.export-header_search_input:focus
+{
+  outline: none;
+}
+.export-header_search_input::placeholder
+{
+  padding-left: 1%;
+}
+.fa-magnifying-glass
+{
+  position: absolute;
+  top: 39%;
+  left:88%;
+  font-size: 20px;
+}
+.favorite-location
+{
+top: 1%;
+left:5%;
+position: relative;
+height: 48%;
+width:95%;
+padding-top: 5%;
+}
+.favorite-location_header
+{
+  font-size: 35px;
+  color:white;
+  margin: 0px;
+  position: absolute;
+  top: -2%;
+  left:5%;
+  width:85%;
+  height: 6%;
+  border-bottom: 2px solid white;
+}
+.anh
+{
+display: flex;
+width: 85%;
+height: 50%;
+margin-left: 13%;
+margin-top: 2%;
+flex-wrap: wrap;
+}
+.anhchinh
+{
+  width: 35%;
+  height: 80%;
+  margin-left: -3%;
+}
+.favorite-location_img
+{
+  width: 40%;
+  height: 42%;
+  border-radius: 50%;
+  position: relative;
+  top:38%;
+  left:33%;
+  z-index: 3;
+  /* border: 2px solid #eea383;
+  box-shadow: 0px 0px 3px 2px #e2e1e1; */
+}
+.favorite-location_information
+{
+  width: 60%;
+  height: 65%; 
+  background-color:#ffffff;
+  border-radius: 12px;
+  position: relative;
+  top:-38%;
+}
+
+
+
+.favorite-itinerary
+{
+top: 1%;
+left:5%;
+position: relative;
+height: 47%;
+width:95%;
+padding-top: 4%;
+margin-top: -5%;
+}
+.favorite-itinerary_header
+{
+  font-size: 35px;
+  color:white;
+  margin: 0px;
+  position: absolute;
+  top: -2%;
+  left:5%;
+  width:85%;
+  height: 6%;
+  border-bottom: 2px solid white;
+}
+.an
+{
+display: flex;
+width: 85%;
+height: 50%;
+margin-left: 13%;
+margin-top: 4%;
+flex-wrap: wrap;
+align-content: flex-start;
+}
+.anhchin
+{
+  width: 35%;
+  height: 25%;
+  margin-left: -3%;
+  margin-top: 5%;
+}
+.favorite-itinerary_img
+{
+  width: 26%;
+  height: 75%;
+  border-radius: 50%;
+  margin-top:4%;
+  margin-left:5%;
+  z-index: 3;
+  /* border: 2px solid #eea383;
+  box-shadow: 0px 0px 3px 2px #e2e1e1; */
+}
+.favorite-itinerary_information
+{
+  width: 80%;
+  height: 100%; 
+  background-color:#ffffff;
+  border-radius: 12px;
+  position: relative;
+  top:-38%;
+  display: flex;
+}
+.information
+{
+margin-top: 7%;
+margin-left: 4%;
+width: 60%;
+}
+.information-name
+{
+margin: 0px;
+font-size: 20px;
+font-weight: 600;
+width:80%;
+  height: 30%;
+  overflow: hidden;
+}
+.information-address
+{
+  margin: 0px;
+  margin-top: 2.5%;
+  color:#27749a;
+  width:80%;
+  height: 20%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rating
+{
+  margin-top: 2%;
+  margin-left: -3%;
+  text-align: left;
+  width:100%;
+}
+.fa-star {
+  color: #e8ad16;
+  margin-left: 3%;
+  margin-top: 2%;
+  font-size: 16px;
+}
+.overlay {
+  background-color: #ffffff;
+  width: 0%;
+  height: 15%;
+  mix-blend-mode: color;
+  position: absolute;
+  top: 72%;
+  right: 27.5%;
+  z-index: 100;
+}
+.fa-heart
+{
+  font-size: 24px;
+  color:rgb(188, 86, 103);
+  left: 88%;
+  top:10%;
+  cursor: pointer;
+  position: absolute;
+}
+.fa-heart:hover
+{
+  font-size: 24px;
+  color:rgb(176, 175, 175);
+}
+.name
+{
+  margin: 0px;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 8%;
+  margin-left: 5%;
+}
+.cost
+{
+  margin: 0px;
+font-size: 18px;
+margin-top: 3%;
+margin-left: 5%;
+color:#27749a;
+}
+.duration
+{
+  margin: 0px;
+font-size: 18px;
+margin-top: 3%;
+margin-left: 5%;
+color:#27749a;
+}
+.people
+{
+  margin: 0px;
+font-size: 18px;
+margin-top: 3%;
+margin-left: 5%;
+color:#27749a;
+}
+.heartlocation
+{
+  top:86%;
+  left:5%
+}
+.color1
+{
+  background-color:black;
+  color:white;
+  box-shadow: 0px 0px 5px 3px rgb(149, 147, 147);
+}
+.color2
+{
+  background-color:black;
+  color:white;
+  box-shadow: 0px 0px 5px 3px rgb(149, 147, 147);
+}
+.color3
+{
+  background-color:black;
+  color:white;
+  box-shadow: 0px 0px 5px 3px rgb(149, 147, 147);
+}
+.itinerary{
+ display: none;
+}
+.location{
+  display: none;
+ }
+ .total-navigation
+{
+width:60%;
+height: 10%;
+top:84%;
+left:37%;
+position: absolute;
+}
+.total-navigation_button
+{
+  width:4%;
+  height: 30%;
+  margin-left: 2%;
+  background-color: white;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0px 0px 5px 3px rgb(184, 183, 183);
+  font-weight: 600;
+  cursor: pointer;
+}
+.choice
+{
+  width:5.5%;
+  height: 35%;
+  margin-left: 2%;
+  background-color: rgb(237, 151, 166);
+  color:white;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 18px;
+}
+.total-navigation_button1
+{
+  width:4%;
+  height: 30%;
+  margin-left: 2%;
+  background-color: white;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0px 0px 5px 3px rgb(184, 183, 183);
+  font-weight: 600;
+  cursor: pointer;
+}
+.choice1
+{
+  width:5.5%;
+  height: 35%;
+  margin-left: 2%;
+  background-color: rgb(237, 151, 166);
+  color:white;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 18px;
+}
+.fa-chevron-left
+{
+font-size: 25px;
+color:#5d5d5d;
+position: relative;
+top:6%;
+margin-right: 2%;
+cursor: pointer;
+}
+.fa-chevron-right
+{
+  font-size: 25px;
+color:#5d5d5d;
+position: relative;
+top:6%;
+left: 3%;
+cursor: pointer;
+}
+.fa-chevron-right:hover
+{
+color:black;
+}
+.fa-chevron-left:hover
+{
+  color:black;
+}
+.loading
+{
+  display: none;
+}

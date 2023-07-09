@@ -1,0 +1,100 @@
+<div class="signup">
+  <div class="signup-form">
+    <p class="signup-form_header">DANA TRAVEL</p>
+    <p class="signup-form_header_extra">Welcome To Da Nang</p>
+    <form
+      #signup="ngForm"
+      class="signup-form_main"
+      (ngSubmit)="signupdata(signup.value)"
+    >
+      <input
+        class="signup-form_input"
+        type="text"
+        placeholder="Your fullname"
+        name="name"
+        (blur)="blurfullname(fullname.value)"
+        (focus)="focus()"
+        #fullname="ngModel"
+        autocomplete="off"
+        [ngModel]
+      />
+      <p
+        class="signup-form_input_notification"
+        [class.notification]="notificationfullname"
+      >
+        {{ detailnotificationfullname }}
+      </p>
+      <input
+        class="signup-form_input"
+        type="text"
+        placeholder="Your email"
+        name="email"
+        (blur)="bluremail(email.value)"
+        (focus)="focus()"
+        #email="ngModel"
+        autocomplete="off"
+        [ngModel]
+      />
+      <p
+        class="signup-form_input_notification"
+        [class.notification]="notificationemail"
+      >
+        {{ detailnotificationemail }}
+      </p>
+
+
+      
+      <div class="password">
+        <input
+          class="signup-form_input"
+          type="{{ type }}"
+          placeholder="Your password"
+          name="password"
+          (blur)="blurpassword(password.value)"
+          (focus)="focus()"
+          #password="ngModel"
+          autocomplete="off"
+          [ngModel]
+        />
+        <i class="fa-regular fa-eye password" (click)="showpassword()"></i>
+      </div>
+      <p
+        class="signup-form_input_notification"
+        [class.notification]="notificationpassword"
+      >
+        {{ detailnotificationpassword }}
+      </p>
+
+      <div class="confirmpassword">
+        <input
+          class="signup-form_input"
+          type="{{ typeconfirm }}"
+          placeholder="Your confirm password"
+          name="confirmpassword"
+          (blur)="blurconfirmpassword(confirmpassword.value,password.value)"
+          (focus)="focus()"
+          [ngModel] 
+          #confirmpassword="ngModel"
+          autocomplete="off"
+        />
+        <i
+          class="fa-regular fa-eye confirmpassword"
+          (click)="showpasswordconfirm()"
+        ></i>
+      </div>
+      <p
+        class="signup-form_input_notification"
+        [class.notification]="notificationconfirmpassword"
+      >
+        {{ detailnotificationconfirmpassword }}
+      </p>
+      <button class="signup-form_button">Sign up</button>
+      <p class="signup-form_signin">
+        Already a member?
+        <span class="signup-form_signin_detail" routerLink="/signin"
+          >Sign in
+        </span>
+      </p>
+    </form>
+  </div>
+</div>

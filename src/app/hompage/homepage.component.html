@@ -1,0 +1,84 @@
+<headerr [addd]="add"></headerr>
+<div class="homepage" (window:scroll)="srcoll()">
+  <div class="homepage-header">
+    <img
+      src="../../assets/image/nen.jpeg"
+      alt=""
+      class="homepage-header_img"
+    />
+    <img src="../../assets/image/DANA.png" alt="" class="homepage-header_img_dana">
+    <img src="../../assets/image/TRAVEL.png" alt="" class="homepage-header_img_travel">
+    <img src="../../assets/image/add.png" alt="" class="homepage-header_img_travel_add">
+    <p class="homepage-location_content">SUGGESSTED DESTINATION</p>
+    <div class="main">
+    <div class="homepage-location">
+      <div class="img" *ngFor="let diadie of diadiem">
+      <img *ngIf="!diadie.photo" src="../../assets/image//nenchung.png" alt="" class="homepage-location_img" (click)="detaill(diadie)">
+      <img *ngIf="diadie.photo" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{diadie.photo}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU" alt="" class="homepage-location_img" (click)="detaill(diadie)">
+      <div class="img-information">
+        <p class="img-information_detail">{{diadie.name}}</p>
+        <p class="img-information_extra">{{diadie.formatted_address}}</p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="homepage-body">
+    <p class="homepage-body_content">SUGGESSTED ITINERARY</p>
+    <div class="homepage-body_main">
+
+
+      <div class="homepage-body_main_detail" *ngFor="let location of locations, let i=index">
+        <img
+          class="homepage-body_main_detail_img"
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{location.photos[3]}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+
+          alt=""
+        />
+        <!-- <img
+        *ngIf="i==1"
+          class="homepage-body_main_detail_img"
+          src="../../assets/image/lich4.jpeg"
+          alt=""
+        />
+        <img
+        *ngIf="i==2"
+          class="homepage-body_main_detail_img"
+          src="../../assets/image/lich1.jpeg"
+          alt=""
+        />
+        <img
+        *ngIf="i==3"
+          class="homepage-body_main_detail_img"
+          src="../../assets/image/lich2.jpeg"
+          alt=""
+        />
+        <img
+        *ngIf="i==4"
+          class="homepage-body_main_detail_img"
+          src="../../assets/image/lich3.jpeg"
+          alt=""
+        />
+        <img
+        *ngIf="i==5"
+          class="homepage-body_main_detail_img"
+          src="../../assets/image/lich5.jpeg"
+          alt=""
+        /> -->
+        <div class="homepage-body_main_information">
+          <p *ngIf="location.name" class="homepage-body_main_information_detail"> {{location.name}}</p>
+          <p *ngIf="!location.name" class="homepage-body_main_information_detail"> Unknown Trip</p>
+          <p *ngIf="location.days==1" class="homepage-body_main_information_extra"> Duration: {{location.days}} Day</p>
+          <p *ngIf="location.days!=1"  class="homepage-body_main_information_extra"> Duration: {{location.days}} Days</p>
+          <p class="homepage-body_main_information_extra"> Cost: {{location.cost.toLocaleString('vi-VN')}} VND</p>
+          <button class="homepage-body_main_information_button" (click)="detail(location._id)">See more</button>
+        </div>
+        <div class="main-favorite"> 
+          <i class="fa-solid fa-heart pink" (click)="unlove(location._id)" *ngIf="thich.includes(location._id)"></i>
+          <i class="fa-solid fa-heart " (click)="love(location._id)" *ngIf="!thich.includes(location._id)"></i> 
+          {{location.favoriteCount}} 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

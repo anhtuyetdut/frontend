@@ -1,0 +1,257 @@
+.admin
+{
+width:100%;
+height: 1600px;
+background-color: #f1f1f1;
+padding-top: 1%;
+}
+.admin-header
+{
+    width:84%;
+    height: 8%;
+    background-color: white;
+    display: flex;
+    border-radius: 5px;
+    position:fixed;
+    top:1.5%;
+    left:15%;
+    z-index: 100;
+}
+.form
+{
+    width:60%;
+    height: 80%;
+    position: relative;
+}
+.admin-header_input
+{
+    width:60%;
+    height: 70%;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 22px;
+    margin-top: 2%;
+    margin-left: 50%;
+}
+.admin-header_input::placeholder
+{
+padding-left: 12%;
+font-size: 14px;
+}
+.fa-magnifying-glass
+{
+position: absolute;
+left:53%;
+top:50%;
+}
+.admin-header_img
+{
+    width:4%;
+    height: 65%;
+    border-radius: 50%;
+    border: 1px solid #3d808a;
+    margin-top:0.9%;
+    margin-left: 30%;
+}
+.admin-siderbar
+{
+    width:15%;
+    height: 100%;
+    background-color: #f1f1f1;
+    position:fixed;
+    top:1.5%;
+    left:0px;
+    bottom:0px;
+}
+.admin-siderbar_logo
+{
+    width:55%;
+    height: 10%;
+    padding: 5% 14%;
+    margin-left: 4%;
+    background-color: white;
+    border-radius: 5px;
+}
+.admin-siderbar_function
+{
+    margin-top:6%;
+    margin-left: 4%;
+    width:85%;
+    height: 70%;
+}
+.fa-house
+{
+ color:#b3b1b1;
+ font-size: 24px;
+ width:20%;
+ margin-left: 10%;
+ margin-top: 8%;
+ cursor: pointer;
+}
+.fa-user
+{
+    color:#b3b1b1;
+    font-size: 24px;
+    width:20%;
+    margin-left: 10%;
+    cursor: pointer;
+    margin-top: 8%;
+}
+.fa-servicestack
+{
+    color:#b3b1b1;
+    font-size: 24px;
+    width:20%;
+    margin-left: 10%;
+    cursor: pointer;
+    margin-top: 8%;
+}
+.fa-plane
+{
+    color:#b3b1b1;
+    font-size: 24px;
+    width:20%;
+    margin-left: 10%;
+    cursor: pointer;
+    margin-top: 8%;
+}
+.fa-hotel
+{
+    color:#b3b1b1;
+    font-size: 24px;
+    width:20%;
+    margin-left: 10%;
+    cursor: pointer;
+    margin-top: 8%;
+}
+.fa-arrow-right-from-bracket
+{
+
+    color:#b3b1b1;
+    font-size: 24px;
+    width:20%;
+    margin-left: 10%;
+    cursor: pointer;
+    margin-top: 8%;
+}
+.admin-siderbar_function_detail
+{
+    font-size: 17px;
+    color:#454545;
+    cursor: pointer;
+}
+.line
+{
+    width:90%;
+    height: 0.2%;
+    background-color:#b3b1b1;
+    margin-top: 175%;
+}
+.mainnn
+{
+width: 110%;
+height: 10%;
+cursor: pointer;
+}
+.mainnn:hover
+{
+  background-color: #ffffff;
+}
+.admin-body
+{
+    width:84%;
+    margin-left: 15%;
+    height: 45%;
+    margin-top: 6%;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+.admin-body_information
+{
+width:95%;
+height: 30%;
+display: flex;
+flex-wrap: wrap;
+margin-left: 2%;
+}
+.admin-body_information_detail
+{
+ width:23%;
+ height: 50%;
+ margin-left: 2%;
+ margin-top: 4%;
+ border-radius: 8px;
+ cursor: pointer;
+ transition: transform;
+}
+.admin-body_information_detail:hover
+{
+transform:scale(1.05)
+}
+.admin-body_information_detail_total
+{
+    color:white;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 7%;
+    margin-left: 6%;
+}
+.admin-body_information_detail_count
+{
+    color:white;
+    margin: 0px;
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 2%;
+    margin-left: 6%;
+}
+.blue
+{
+    background-color: #9fc9f9;
+    box-shadow: 0px 0px 3px 2px #9fc9f9;
+}
+.green
+{
+    background-color: #afd8df;
+    box-shadow: 0px 0px 3px 2px #afd8df;
+}
+.poper
+{
+    background-color: #afb5df;
+    box-shadow: 0px 0px 3px 2px #afb5df;
+}
+.pink
+{
+    background-color: #dfafaf;
+    box-shadow: 0px 0px 3px 2px #dfafaf;
+}
+
+  .admin-body_chart
+  {
+    display: flex;
+    background-color: #ffffff;
+    padding-bottom: 5%;
+  }
+  .chartcolum
+  {
+    width:90%;
+    height: 80%;
+    background-color: #f1f1f1;
+    margin-left: 5%;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 2px rgb(224, 224, 224);
+  }
+  .chartcicle
+  {
+    width:18%;
+    height: 80%;
+    background-color: #f1f1f1;
+    margin-left: 3%;
+    border-radius: 8px;
+    margin-right: 1%;
+    padding:1.6% 0%;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 2px rgb(177, 177, 177);
+  }

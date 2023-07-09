@@ -1,0 +1,84 @@
+<headerr [addd]="add" class="thien"></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="export" (window:scroll)="srcoll()">
+  <img src="../../assets/image/hoxanh.jpeg" alt="" class="export-img">
+  <div class="export-header">
+    <img src="../../assets/image/DANA TRAVEL.png" alt="" class="export-header_img">
+    <div class="export-header_search">
+      <div class="export-header_search_filter">
+        <button class="export-header_search_filter_button" [class.color1]="color1" (click)="choice1()">All</button>
+        <button class="export-header_search_filter_button" [class.color2]="color2" (click)="choice2()">Public</button>
+        <button class="export-header_search_filter_button" [class.color3]="color3" (click)="choice3()">Private</button>
+        <select #day class="export-header_search_filter_button" [class.color2]="color4" (change)="choice4(day.value)">
+          <option value="0">Duration</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5-10</option>
+        </select>
+        <select #people class="export-header_search_filter_button" [class.color3]="color5" (change)="choice5(people.value)"> 
+          <option value="0">People</option>
+          <option value="1">1 person</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5-10</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="export-main">
+      <p class="export-main_count">Total {{name}}: {{count}}</p>
+      <div class="export-main_content" *ngFor="let history of historys, let i=index">
+        <!-- <p class="export-main_content_detail" *ngFor="let route of history.routes.slice(1,4)" routerLink="/itinerary/create" >
+          {{route.name}},
+            </p>
+          <i class="fa-solid fa-pen"></i> -->
+          <div class="export-main_content_img" *ngFor="let route of history.routes.slice(1,2)">
+            <img *ngIf="route.photos==null"
+              src="../../assets/image/nen33.jpeg"
+              alt=""
+              class="export-main_content_img_content"
+              (click)="detail(history)"
+            />
+            <img *ngIf="route.photos!=null"
+              src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{route.photos}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+              alt=""
+              class="export-main_content_img_content"
+              (click)="detail(history)"
+            />
+      </div>
+
+      <div class="homepage-body_main_information" *ngFor="let route of history.routes.slice(1,2)">
+        <p *ngIf="history.name" class="homepage-body_main_information_detail">{{history.name}}</p>
+        <p *ngIf="!history.name"class="homepage-body_main_information_detail">Unknown Trip</p>
+        <p *ngIf="history.people!=1" class="homepage-body_main_information_extra"> People: {{history.people}} people</p>
+        <p *ngIf="history.people==1" class="homepage-body_main_information_extra"> Person: {{history.people}} person</p>
+        <p class="homepage-body_main_information_extra"> Cost: {{history.cost.toLocaleString('vi-VN')}} VND</p>
+        <p *ngIf="history.days==1" class="homepage-body_main_information_extra">Duration: {{history.days}} day</p>
+        <p *ngIf="history.days!=1" class="homepage-body_main_information_extra">Duration: {{history.days}} days</p>
+        <!-- <button class="homepage-body_main_information_button">See more</button> -->
+        <div class="export-main_content_extra">
+          <i class="fa-solid fa-earth-americas green" (click)="unlove(history._id)" *ngIf="thich.includes(history._id)"></i>
+          <i class="fa-solid fa-earth-americas" (click)="public(history._id)" *ngIf="!thich.includes(history._id)"></i> 
+          <i class="fa-solid fa-trash" (click)="detele(i,history._id)"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="total-navigation">
+  <i (click)="truoc()" class="fa-solid fa-chevron-left"></i>
+  <button class="total-navigation_button choice" (click)="navigation(types[0],0)">{{types[0]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[1],1)">{{types[1]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[2],2)">{{types[2]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[3],3)">{{types[3]}}</button>
+  <button class="total-navigation_button " (click)="navigation(types[4],4)">{{types[4]}}</button>
+  <i (click)="sau()" class="fa-solid fa-chevron-right"></i>
+  </div>
+
+  
+</div>

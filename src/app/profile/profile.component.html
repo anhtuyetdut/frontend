@@ -1,0 +1,37 @@
+<headerr [addd]="add"></headerr>
+<div class="profile" (window:scroll)="srcoll()">
+  <div class="profile-information">
+    <div class="profile-information_extrapicture"></div>
+    <div class="profile-information_mainpicture">
+      <img
+        src="{{account.avatar}}"
+        alt=""
+        class="profile-information_mainpicture_content"
+      />
+      <i class="fa-solid fa-camera"></i>
+      <div class="profile-information_mainpicture_detail">
+        <p class="profile-information_mainpicture_detail_name">{{account.name}}</p>
+        <p class="profile-information_mainpicture_detail_email">
+          Email: {{account.email}}
+        </p>
+      </div>
+    </div>
+  </div>
+<div class="profile-change">
+  <div class="profile-change_information">
+    <p class="profile-change_information_header">Your Name: </p>
+  <input type="text" class="profile-change_information_input" value={{account.name}}>
+  <button class="profile-change_information_button">Change</button>
+  </div>
+
+
+  <div class="profile-change_information">
+    <p class="profile-change_information_header">Your Email: </p>
+    <input type="text" class="profile-change_information_input" value={{account.email}}>
+    <button class="profile-change_information_button"> Change </button>
+    </div>
+
+</div>
+
+
+</div>

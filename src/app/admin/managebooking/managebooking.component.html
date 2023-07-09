@@ -1,0 +1,127 @@
+<div class="managebooking">
+  <div class="manabooking-siderbar">
+    <img src="../../assets/image/img-logo.png" alt="" class="manabooking-siderbar_logo" />
+    <div class="manabooking-siderbar_function">
+      <div class="mainnn">
+        <i class="fa-solid fa-house"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/admin"> Home Page</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-user"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/manageuser"> Manage User</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-plane"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/manageitinerary"> Manage Itinerary</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-sharp fa-solid fa-hotel"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/managelocation">Manage Location</span>
+        <br />
+      </div>
+      <div class="line"></div>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <span class="manabooking-siderbar_function_detail"> Sign Out</span>
+    </div>
+  </div>
+  <div class="manage-table_main_content">
+    <p class="management-header_text">Location Management</p>
+    <div class="manabooking-header">
+      <div class="filter-container">
+        <form class="form" #form="ngForm">
+          <input
+            type="text"
+            #input="ngModel"
+            class="manabooking-header_input"
+            placeholder="Search here...."
+            name="keyword"
+            [ngModel]=""
+            autocomplete="off"
+            (keyup)="change($event)"
+          />
+          <button class="bam">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="filter_main">
+          <select #tien name="lang" class="filter_main_content" (change)="onChange($event, '')">
+            <option value="">All</option>
+            <option value="cafe">Coffee</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="park">Park</option>
+            <option value="amusement_park">Amusement Park</option>
+            <option value="church">Church</option>
+            <option value="natural_feature">Landscape</option>
+            <option value="museum">Museum</option>
+            <option value="tourist_attraction">Tourist attraction</option>
+          </select>
+          <!-- <input type="text" class="search-input_main_content"> -->
+        </div>
+      </div>
+      <button class="manageuser-table_addusser">Add New User <i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div class="manabooking-table">
+      <div class="manabooking-table_main_header">
+        <p class="manabooking-table_main_header_id">ID</p>
+        <p class="manabooking-table_main_header_name">NAME</p>
+        <p class="manabooking-table_main_header_address">ADDRESS</p>
+        <p class="manabooking-table_main_header_role">PRICE (VND)</p>
+        <p class="manabooking-table_main_header_action">ACTION</p>
+      </div>
+      <div class="manabooking-table_main">
+        <div class="manabooking-table_main_content mot" *ngFor="let historybooking of historybookings; let i = index">
+          <p class="manabooking-table_main_content_id">
+            {{ pageIndex * 10 + i + 1 }}
+          </p>
+          <div class="manabooking-table_main_content_name">
+            <p *ngIf="!historybooking.photos" class="manabooking-table_main_content_img">
+              <img src="../../../assets/image/nenchung.png" alt="" class="manabooking-table_main_content_img_detail" />
+            </p>
+            <p *ngIf="historybooking.photos" class="manabooking-table_main_content_img">
+              <img
+                src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{historybooking?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+                alt=""
+                class="manabooking-table_main_content_img_detail"
+              />
+            </p>
+            <p class="manabooking-table_main_content_name_text">
+              {{ historybooking.name }}
+            </p>
+          </div>
+          <p class="manabooking-table_main_content_address">
+            {{ historybooking.formatted_address }}
+          </p>
+          <p class="manabooking-table_main_content_role">
+            {{ historybooking.cost.toLocaleString("vi-VN") }}
+          </p>
+          <p class="manabooking-table_main_content_action">
+            <button class="manabooking-table_main_content_action_delete">
+              <i class="fa-solid fa-trash"></i>
+              <p class="manabooking-table_main_content_action_text">Delete</p>
+            </button>
+            <button class="manabooking-table_main_content_action_delete">
+              <i class="fa-solid fa-pen"></i>
+              <p class="manabooking-table_main_content_action_text">Update</p>
+            </button>
+          </p>
+        </div>
+      </div>
+      <mat-paginator
+        #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [disabled]="disabled"
+        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+        [hidePageSize]="true"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

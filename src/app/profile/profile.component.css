@@ -1,0 +1,128 @@
+.profile {
+  width: 100%;
+  height: 1080px;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top:0%;
+  bottom:0%;
+  left:0%;
+  right:0%;
+
+}
+.profile-information {
+  margin-top: 0%;
+  width: 100%;
+  height: 35%;
+}
+.profile-information_extrapicture {
+  width: 100%;
+  height: 60%;
+  background-color: #e0f3ff;
+  position: relative;
+}
+.profile-information_extrapicture_button {
+  width: 7%;
+  height: 25%;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  position: absolute;
+  top: 68%;
+  right: 1%;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0px 0px 3px 2px rgb(209, 209, 209);
+  cursor: pointer;
+  z-index: 1;
+}
+.profile-information_extrapicture_button:hover {
+  box-shadow: 0px 0px 3px 2px rgb(145, 144, 144);
+}
+.profile-information_mainpicture {
+  width: 98%;
+  height: 50%;
+  margin-left: 3%;
+  margin-top: -4.5%;
+  position: relative;
+  display: flex;
+}
+.profile-information_mainpicture_content {
+  width: 16%;
+  height: 120%;
+  border-radius: 50%;
+  position: absolute;
+  border: 3px solid #3d80a8;
+}
+.fa-camera {
+  position: absolute;
+  top: 98%;
+  left: 12.5%;
+  font-size: 22px;
+  background-color: #d6d6d6;
+  border-radius: 50%;
+  padding: 0.5%;
+}
+.profile-information_mainpicture_detail {
+  position: absolute;
+  left: 18%;
+  top: 52%;
+}
+.profile-information_mainpicture_detail_name {
+  font-size: 30px;
+  margin: 0px;
+  font-weight: 600;
+}
+.profile-information_mainpicture_detail_email {
+  font-size: 24px;
+  margin: 0px;
+  margin-top: 3%;
+  font-weight: 600;
+}
+.profile-change
+{
+  margin-top: 7%;
+  width:100%;
+  height: 50%;
+  display: flex;
+}
+.profile-change_information
+{
+  width:40%;
+  height: 90%;
+  margin-left: 5%;
+}
+.profile-change_information_header
+{
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.profile-change_information_input
+{
+  width:80%;
+  height: 13%;
+  margin-top: 5%;
+  border: 1px solid #3d80a8;
+  border-radius: 24px;
+}
+.profile-change_information_button
+{
+  display: block;
+  width:25%;
+  height: 10%;
+  border: none;
+  background-color: #5fa2c9;
+  border-radius: 14px;
+  margin-top: 6%;
+  margin-left: 1%;
+  color:white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 1px rgb(156, 154, 154);
+}
+.profile-change_information_button:hover
+{
+  background-color: #166593;
+  box-shadow: 0px 0px 4px 2px rgb(137, 135, 135);
+}

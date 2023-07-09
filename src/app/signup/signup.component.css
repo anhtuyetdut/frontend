@@ -1,0 +1,118 @@
+.signup {
+  width: 100%;
+  height: 850px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../../assets/image/img-background_beach.jpg);
+  padding-top: 6%;
+}
+.signup-form {
+  width: 35%;
+  height: 80%;
+  background-color: rgb(255, 255, 255, 0.7);
+  margin-left: 32.5%;
+  box-shadow: 0px 0px 5px 3px rgb(235, 235, 235);
+  border-radius: 4px;
+}
+.signup-form_header {
+  font-size: 40px;
+  margin: 0;
+  padding-top: 10%;
+  color: #326c8e;
+  margin-left: 26%;
+}
+.signup-form_header_extra {
+  font-size: 16px;
+  color: #707b81;
+  margin-top: 1%;
+  margin-left: 35%;
+  font-style: italic;
+}
+.signup-form_main {
+  width: 80%;
+  height: 8%;
+}
+.signup-form_input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 11%;
+  margin-top: 9%;
+  border: none;
+  border-radius: 26px;
+  padding-left: 2%;
+  font-size: 18px;
+  box-shadow: 0px 0px 3px 2px rgb(243, 241, 241);
+}
+::placeholder {
+  color: rgb(146, 146, 146);
+}
+.signup-form_input:focus {
+  outline: 1px solid #619ec0;
+}
+.password {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.confirmpassword {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.fa-eye {
+  color: #799aac;
+  position: absolute;
+  font-size: 14px;
+  top: 36%;
+  left: 105%;
+  color: #799aac;
+  cursor: pointer;
+}
+.signup-form_forgot {
+  margin-top: 3%;
+  font-size: 16px;
+  margin-left: 70%;
+  font-weight: 600;
+}
+.signup-form_button {
+  display: block;
+  width: 102%;
+  height: 100%;
+  margin-left: 11%;
+  margin-top: 9%;
+  border: none;
+  border-radius: 26px;
+  padding-left: 2%;
+  background-color: #619ec0;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0px 0px 3px 2px rgb(243, 241, 241);
+  text-shadow: 2px 2px 2px rgb(114, 113, 113);
+  cursor: pointer;
+}
+.signup-form_button:hover {
+  box-shadow: 0px 0px 3px 2px #053853;
+}
+.signup-form_signin {
+  margin-top: 5%;
+  margin-left: 38%;
+  font-weight: 600;
+}
+.signup-form_signin_detail {
+  color: #1170af;
+  cursor: pointer;
+}
+.signup-form_input_notification {
+  color: red;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 4%;
+  margin-top:0.7%;
+  font-style: italic;
+  display: none;
+  position: absolute;
+}
+.notification {
+  display: block;
+}

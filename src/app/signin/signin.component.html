@@ -1,0 +1,71 @@
+<div class="signin">
+  <div class="signin-form">
+    <p class="signin-form_header">DANA TRAVEL</p>
+    <p class="signin-form_header_extra">Welcome To Da Nang</p>
+    <form
+      #signin="ngForm"
+      class="signin-form_main"
+      (ngSubmit)="submit(signin.value)"
+    >
+      <input
+        class="signin-form_input"
+        type="text"
+        placeholder="Your email"
+        name="email"
+        autocomplete="off"
+        [ngModel]
+        #email="ngModel"
+      />
+      <p
+        class="signin-form_input_notification"
+        [class.notification]="notification"
+      >
+        This section cannot be left blank
+      </p>
+      <div class="password">
+        <input
+          class="signin-form_input"
+          type="{{ type }}"
+          placeholder="Your password"
+          name="password"
+          autocomplete="off"
+          [ngModel]
+          #password="ngModel"
+        />
+        <p
+          class="signin-form_input_notification"
+          [class.notification]="notificationpassword"
+        >
+          This section cannot be left blank
+        </p>
+        <i class="fa-regular fa-eye" (click)="showpassword()"></i>
+      </div>
+      <p class="signin-form_forgot" routerLink="/forgotpassword">Forgot password?</p>
+      <button class="signin-form_button">Sign in</button>
+      <p class="signin-form_choice">Or</p>
+    <button class="signin-form_choice_google">
+      <img
+        class="fa-google_img"
+        src="../../assets/image/img-logo_google.png"
+        alt=""
+      />
+      <span class="fa-google_detail">Google </span>
+    </button>
+    <button class="signin-form_choice_facebook">
+      <img
+        class="fa-facebook_img"
+        src="../../assets/image/img-logo_facebook.png"
+        alt=""
+      />
+      <span class="fa-facebook_detail">Facebook </span>
+    </button>
+    <p class="signin-form_signup">
+      Have you had your account yet?
+      <span class="signin-form_signup_detail" routerLink="/signup">
+        Sign up
+      </span>
+    </p>
+    <p class="signin-form_signup_noti" [class.noti]="noti"> Your email or password is incorrect !!!</p>
+  </form>
+  </div>
+</div>

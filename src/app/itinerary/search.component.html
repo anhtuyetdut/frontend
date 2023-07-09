@@ -1,0 +1,220 @@
+<headerr [addd]="add"></headerr>
+<loading [class.loading]="loading"></loading>
+<div class="search">
+  <img src="../../assets/image/nen9.jpeg" alt="" class="search-img" />
+  <div class="search-form">
+    <p class="search-form_header" (click)="choice()">What do you want to your itinerary?</p>
+  </div>
+  <div class="search-input">
+    <label class="search-input_deatil">Why do you want to visit Da Nang?</label>
+    <div class="search-input_header">
+      <button class="search-input_header_button add" (click)="thien(0)">
+        All <i class="fa-solid fa-circle-xmark delete" (click)="delete(0)"></i>
+      </button>
+      <button class="search-input_header_button" *ngFor="let typ of type; let i = index" (click)="thien(i + 1)">
+        {{ typ }} <i class="fa-solid fa-circle-xmark" (click)="delete(i + 1)"></i>
+      </button>
+    </div>
+    <div class="main">
+      <div class="search-input_main">
+        <label class="search-input_main_deatil">How much should be your budget during a itinerary?</label>
+        <select #tien name="lang" class="search-input_main_content" (change)="changemoney(tien.value)">
+          <option value="1">1.000.000 - 3.000.000 VND</option>
+          <option value="2">3.0000.000 - 5.000.000 VND</option>
+          <option value="3">5.0000.000 - 10.000.000 VND</option>
+          <option value="4">10.0000.000 - 15.000.000 VND</option>
+        </select>
+        <!-- <input type="text" class="search-input_main_content"> -->
+      </div>
+      <div class="search-input_main them">
+        <label class="search-input_main_deatil">How many people will travel in this itinerary?</label>
+        <select #nguoi name="lang" class="search-input_main_content" (change)="changepeople(tien.value)">
+          <option value="1">1 Person</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 - 10</option>
+        </select>
+        <!-- <input type="text" class="search-input_main_content"> -->
+      </div>
+    </div>
+
+    <div class="extra">
+      <div class="search-input_extra">
+        <label class="search-input_extra_deatil">Start date</label>
+        <input
+          name="startDate"
+          type="date"
+          class="search-input_extra_content"
+          [ngModel]="currentDate"
+          #start="ngModel"
+          min="{{ currentDate }}"
+          (change)="star(start.value)"
+        />
+      </div>
+      <div class="search-input_extra themmm">
+        <label class="search-input_extra_deatil">End date</label>
+        <input
+          name="endDate"
+          type="date"
+          class="search-input_extra_content"
+          [ngModel]="currentDate"
+          #end="ngModel"
+          min="{{ currentDate }}"
+        />
+      </div>
+
+      <div class="search-input_extra themmm">
+        <label class="search-input_extra_deatil">Where do you want to set off?</label>
+        <select
+          #chon
+          name="lang"
+          class="search-input_extra_content addd"
+          [class.hien]="hien"
+          (change)="changepossition(chon.value)"
+        >
+          <option value="1">Your Position</option>
+          <option value="2">Other Position</option>
+        </select>
+
+        <input
+          [class.an]="an"
+          class="form-control search-input_extra_content"
+          id="searchAddress"
+          name="searchAddress"
+          placeholder="Address"
+          ngx-google-places-autocomplete
+          #placesRef="ngx-places"
+          (onAddressChange)="handleAddressChange($event)"
+        />
+
+        <!-- <input type="text" class="search-input_extra_content"> -->
+      </div>
+
+      <div class="search-input_extra">
+        <label class="search-input_extra_deatil">Which place do you want to visit?</label>
+        <select #them name="lang" class="search-input_extra_content addd" (change)="addpossition(them.value)">
+          <option value="0">None</option>
+          <option value="1">{{ yourlocation }}</option>
+        </select>
+      </div>
+    </div>
+    <button class="search-input_button" (click)="search(start.value, end.value)">Search</button>
+  </div>
+  <div class="search-bland"></div>
+</div>
+
+<div class="background" [class.remove]="remove" (click)="background()"></div>
+<div class="choice-location" [class.remove]="remove">
+  <p class="choice-location_header">Location</p>
+
+  <div class="themm">
+    <div class="total-navigation">
+      <i (click)="truoc()" class="fa-solid fa-chevron-left"></i>
+      <button class="total-navigation_button choice" (click)="navigation(typess[0], 0)">{{ typess[0] }}</button>
+      <button class="total-navigation_button" (click)="navigation(typess[1], 1)">{{ typess[1] }}</button>
+      <button class="total-navigation_button" (click)="navigation(typess[2], 2)">{{ typess[2] }}</button>
+      <button class="total-navigation_button" (click)="navigation(typess[3], 3)">{{ typess[3] }}</button>
+      <button class="total-navigation_button" (click)="navigation(typess[4], 4)">{{ typess[4] }}</button>
+      <!-- <button class="total-navigation_button" *ngFor="let type of types.slice(1,5),let j=index" (click)="navigation(type,j+1)">{{type}}</button> -->
+      <i (click)="sau()" class="fa-solid fa-chevron-right"></i>
+    </div>
+
+    <div class="searchh">
+      <form class="form" #form="ngForm" (ngSubmit)="search1(form.value)">
+        <input
+          type="text"
+          #input="ngModel"
+          class="drop-input"
+          placeholder="Search here...."
+          name="keyword"
+          [ngModel]=""
+          autocomplete="off"
+        />
+        <button class="bam"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="choice-location_header_content">
+    <div class="choice-location_header_content_main" *ngFor="let location of locations; let i = index">
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'cafe'"
+        src="../../assets/image/cafe.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'food'"
+        src="../../assets/image/food.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'restaurant'"
+        src="../../assets/image/food.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'park'"
+        src="../../assets/image/park.png"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'church'"
+        src="../../assets/image/church.webp"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'museum'"
+        src="../../assets/image/museum.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'travel'"
+        src="../../assets/image/travel.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'natural_feature'"
+        src="../../assets/image/travel.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos === null && location.types[0] == 'premise'"
+        src="../../assets/image/travel.jpeg"
+        alt=""
+        class="total-header_main_img"
+      />
+      <img
+        *ngIf="location.photos"
+        src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{location?.photos?.[0].photo_reference}}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+        alt=""
+        class="total-header_main_img"
+      />
+      <div>
+        <p class="total-header_main_detail">{{ location.name }}</p>
+        <div class="rating">
+          <p *ngIf="location.rating" class="start-add">{{ location.rating }}</p>
+          <p *ngIf="!location.rating" class="start-add">5</p>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="address">
+          <i class="fa-solid fa-location-dot"></i>
+          <p class="total-header_main_detail_address">{{ location.formatted_address }}</p>
+        </div>
+      </div>
+      <input
+        class="choice-location_header_content_main_check"
+        type="checkbox"
+        (click)="check(location._id, location.name)"
+      />
+    </div>
+  </div>
+</div>

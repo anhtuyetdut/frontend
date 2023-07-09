@@ -1,0 +1,201 @@
+<div class="manageuser">
+  <div class="manageuser-siderbar">
+    <img src="../../assets/image/img-logo.png" alt="" class="manageuser-siderbar_logo" />
+    <div class="manageuser-siderbar_function">
+      <div class="mainnn">
+        <i class="fa-solid fa-house"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/admin"> Home Page</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-user"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/manageuser"> Manage User</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-solid fa-plane"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/manageitinerary"> Manage Itinerary</span>
+        <br />
+      </div>
+      <div class="mainnn">
+        <i class="fa-sharp fa-solid fa-hotel"></i>
+        <span class="admin-siderbar_function_detail" routerLink="/managelocation">Manage Location</span>
+        <br />
+      </div>
+      <div class="line"></div>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <span class="manageuser-siderbar_function_detail"> Sign Out</span>
+    </div>
+  </div>
+  <div class="manage-table_main_content">
+    <p class="management-header_text">Account Management</p>
+    <div class="manageuser-header">
+      <div class="filter-container">
+        <form class="form" #form="ngForm">
+          <input
+            type="text"
+            #input="ngModel"
+            class="manageuser-header_input"
+            placeholder="Search here...."
+            name="keyword"
+            [ngModel]=""
+            autocomplete="off"
+          />
+          <button class="bam">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <!-- <div class="filter_main">
+        <select #tien name="lang" class="filter_main_content">
+          <option value="1">All</option>
+          <option value="2">Coffee</option>
+          <option value="3">Restaurant</option>
+          <option value="4">Landscape</option>
+        </select>
+      </div> -->
+        <div class="filter_main_status">
+          <select #tien name="lang" class="filter_main_content status">
+            <option value="1">All</option>
+            <option value="2">ADMIN</option>
+            <option value="3">TRAVELER</option>
+          </select>
+          <!-- <input type="text" class="search-input_main_content"> -->
+        </div>
+      </div>
+      <button class="manageuser-table_addusser" (click)="addnew()">
+        Add New User <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+    <div class="manageuser-table">
+      <div class="manageuser-table_main_header">
+        <p class="manageuser-table_main_header_id">ID</p>
+        <p class="manageuser-table_main_header_name">NAME</p>
+        <p class="manageuser-table_main_header_email">EMAIL</p>
+        <p class="manageuser-table_main_header_role">ROLE</p>
+        <p class="manageuser-table_main_header_action">PUBLIC</p>
+      </div>
+      <div class="manageuser-table_main">
+        <div class="manageuser-table_main_content mot" *ngFor="let user of users; let i = index">
+          <p class="manageuser-table_main_content_id">
+            {{ pageIndex * 10 + i + 1 }}
+          </p>
+          <div class="manageuser-table_main_content_name">
+            <p *ngIf="user.img" class="manageuser-table_main_content_img">
+              <img src="{{ user.img }}" alt="" class="manageuser-table_main_content_img_detail" />
+            </p>
+            <p *ngIf="!user.img" class="manageuser-table_main_content_img">
+              <img src="../../../assets/image/nenchung.png" alt="" class="manageuser-table_main_content_img_detail" />
+            </p>
+            <p class="manageuser-table_main_content_name_text">
+              {{ user.name }}
+            </p>
+          </div>
+          <p class="manageuser-table_main_content_email">{{ user.email }}</p>
+          <p *ngIf="user.role == 1" class="manageuser-table_main_content_role">USER</p>
+          <p *ngIf="user.role == 0" class="manageuser-table_main_content_role">ADMIN</p>
+          <p class="manageuser-table_main_content_action">
+            <button class="manageuser-table_main_content_action_delete">
+              <i class="fa-solid fa-trash" (click)="delete(user._id)"></i>
+              <p class="manageuser-table_main_content_action_text">Delete</p>
+            </button>
+            <button class="manageuser-table_main_content_action_delete">
+              <i class="fa-solid fa-pen" (click)="updatesong(user)"></i>
+              <p class="manageuser-table_main_content_action_text">Update</p>
+            </button>
+          </p>
+        </div>
+      </div>
+      <mat-paginator
+        #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+        [hidePageSize]="true"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </div>
+    <div class="back" [class.backgroun]="backgroun" (click)="remove()"></div>
+    <form #newuser="ngForm" (ngSubmit)="create(newuser.value)" class="create-user" [class.add]="add">
+      <p class="create-user_header">CREATE NEW SONG</p>
+      <input
+        name="email"
+        [ngModel]
+        type="text"
+        class="create-user_input"
+        placeholder="Enter song's name"
+        autocomplete="off"
+      />
+      <input
+        name="password"
+        [ngModel]
+        type="text"
+        class="create-user_input"
+        placeholder="Enter singer's name"
+        autocomplete="off"
+      />
+      <input
+        name="role"
+        [ngModel]
+        type="text"
+        class="create-user_input"
+        placeholder="Enter song's point"
+        autocomplete="off"
+      />
+      <input
+        name="name"
+        [ngModel]
+        type="text"
+        class="create-user_input"
+        placeholder="Enter song's source"
+        autocomplete="off"
+      />
+      <button class="create-user_button">Submit</button>
+    </form>
+
+    <form #update="ngForm" (ngSubmit)="updateinfor(update.value)" class="update-user" [class.addupdate]="addupdate">
+      <p class="update-user_header">UPDATE FLIM'S INFORMATION</p>
+      <input
+        name="email"
+        ngModel="{{ email }}"
+        [ngModel]
+        type="text"
+        class="update-user_input"
+        placeholder="Enter movie's name"
+        autocomplete="off"
+        readonly
+      />
+      <input
+        name="isActive"
+        ngModel="{{ isActive }}"
+        [ngModel]
+        type="text"
+        class="update-user_input"
+        placeholder="Enter movie's name"
+        autocomplete="off"
+      />
+      <input
+        name="role"
+        [ngModel]
+        ngModel="{{ role }}"
+        type="text"
+        class="update-user_input"
+        placeholder="Enter director's name"
+        autocomplete="off"
+      />
+      <input
+        name="name"
+        [ngModel]
+        ngModel="{{ name }}"
+        type="text"
+        class="update-user_input"
+        placeholder="Enter movie's point"
+        autocomplete="off"
+      />
+      <button class="update-user_button">Submit</button>
+    </form>
+  </div>
+</div>

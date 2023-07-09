@@ -1,0 +1,132 @@
+<div class="background" (click)="back()"></div>
+<div class="backg"></div>
+<div class="choice">
+  <button class="choice-button" [class.colo1]="colo1" (click)="choice(0)">Option 1</button>
+  <button class="choice-button" [class.colo2]="colo2" (click)="choice(1)">Option 2</button>
+  <button class="choice-button" [class.colo3]="colo3" (click)="choice(2)">Option 3</button>
+</div>
+<div class="itinerary">
+  <div class="itinerary-search">
+    <div class="itinerary-search_input">
+      <div class="itinerary-search_input_day">
+        <p class="itinerary-search_input_day_detail add" (click)="thi(0)">Day 1</p>
+        <p class="itinerary-search_input_day_detail" *ngFor="let thie of thien; let i = index" (click)="thi(i + 1)">
+          {{ thie }}
+        </p>
+      </div>
+      <div class="itinerary-search_input_siderbar">
+        <button class="itinerary-search_input_siderbar_button color" (click)="unmap()">Itinerary</button>
+        <button class="itinerary-search_input_siderbar_button" (click)="map()">Map</button>
+        <button class="itinerary-search_input_siderbar_button" (click)="downloadPDF()">Export</button>
+        <button class="itinerary-search_input_siderbar_button" (click)="edit()">Edit</button>
+      </div>
+    </div>
+
+    <!-- <p class="distance"> Distance: {{location.distance}}</p>
+    <p class="cost"> Cost: {{location.cost.toLocaleString('vi-VN')}} VNĐ</p> -->
+
+    <div class="itinerary-search_place" [class.place]="place" *ngIf="!location.route">
+      <div class="itinerary-search_place_main" *ngFor="let locatio of location; let j = index">
+        <img *ngIf="!locatio.img" src="../../assets/image/nen33.jpeg" alt="" class="itinerary-search_place_main_img" />
+
+        <img
+          *ngIf="locatio.img"
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{
+            locatio.img
+          }}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+          alt=""
+          class="itinerary-search_place_main_img"
+        />
+        <div class="itinerary-search_place_main_detail">
+          <p class="itinerary-search_place_main_detail_name">
+            {{ locatio.name }}
+          </p>
+
+          <p *ngIf="!locatio.address" class="itinerary-search_place_main_detail_extra">Da Nang</p>
+
+          <p *ngIf="locatio.address" class="itinerary-search_place_main_detail_extra">
+            {{ locatio.address }}
+          </p>
+
+          <div class="start">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="itinerary-search_place_main_detail_extr">
+            Start Time:
+            {{ locatio.timeS }}
+          </p>
+          <p class="itinerary-search_place_main_detail_extr">
+            End Time:
+            {{ locatio.timeE }}
+          </p>
+        </div>
+        <div class="itinerary-search_place_main_funtion">
+          <i class="fa-solid fa-trash" (click)="trash(j)"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="itinerary-search_place" [class.place]="place" *ngIf="location.route">
+      <!-- <div
+        (click)="detail(locations[i])"
+        class="itinerary-search_place_main"
+        *ngFor="let locatio of location;"
+      > -->
+      <div class="itinerary-search_place_main" *ngFor="let locatio of location.route; let i = index">
+        <img
+          *ngIf="!locatio.description.photos"
+          src="../../assets/image/nenchung.png"
+          alt=""
+          class="itinerary-search_place_main_img"
+        />
+
+        <img
+          *ngIf="locatio.description.photos"
+          src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference={{
+            locatio.description.photos
+          }}&key=AIzaSyBVatgG_Di0Y8-yNMFDvczuyAGzIMcN0RU"
+          alt=""
+          class="itinerary-search_place_main_img"
+        />
+        <div class="itinerary-search_place_main_detail">
+          <p class="itinerary-search_place_main_detail_name">
+            {{ locatio.description.name }}
+          </p>
+          <p *ngIf="!locatio.description.address" class="itinerary-search_place_main_detail_extra">Da Nang</p>
+          <p *ngIf="locatio.description.address" class="itinerary-search_place_main_detail_extra">
+            {{ locatio.description.address }}
+          </p>
+          <div class="start">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <div class="overlay" *ngFor="let thi of thienn" style.width="{{ thienn[i] }}%"></div>
+          </div>
+          <p class="itinerary-search_place_main_detail_extr">
+            Start Time:
+            {{ locatio.travelTime.arrival }}
+          </p>
+          <p class="itinerary-search_place_main_detail_extr">
+            End Time:
+            {{ locatio.travelTime.departure }}
+          </p>
+        </div>
+        <div class="itinerary-search_place_main_funtion">
+          <p class="itinerary-search_place_main_funtion_price">{{ locatio.cost.toLocaleString("vi-VN") }} VND</p>
+          <!-- <i class="fa-solid fa-trash"></i> -->
+          <i class="fa-solid fa-trash" (click)="trash(i)"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- <map [class.mapp]="mapp"></map>
+    <cdk-drag-drop-connected-sorting-group-example [class.editt]="editt"></cdk-drag-drop-connected-sorting-group-example> -->
+    <p class="text">The number of priority destinations: {{ this.priority }}</p>
+  </div>
+</div>
